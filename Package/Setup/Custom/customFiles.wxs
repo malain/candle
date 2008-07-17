@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
+	<Fragment Id="VSTemplatesFragment">
+		<FeatureRef Id="DefaultFeature">
+			<ComponentRef Id="templateFiles" />
+			<ComponentRef Id="helpFiles" />
+			<ComponentRef Id="Candle_regasm1" />
+			<ComponentRef Id="Candle_regasm2" />
+			<ComponentRef Id="Candle_regasm3" />
+			<ComponentRef Id="Candle_regasm4" />
+			<ComponentRef Id="Candle_regasm5" />
+			<ComponentRef Id="Candle_regasm6" />
+			<ComponentRef Id="Candle_regasm7" />
+			<ComponentRef Id="Candle_regasm8" />
+			<ComponentRef Id="Candle_regasm9" />
+			<ComponentRef Id="Candle_regasm10" />
+		</FeatureRef>
+
+		<DirectoryRef Id="TARGETDIR">
+			<Component Id="helpFiles" Guid="5D4ADB8E-1A74-4221-B494-0E3BA132C557" DiskId="1">
+				<File Id="_inijpg" Name="cinit.png" LongName="candleinit.png" src="SourceDir\Files\candleinit.png" Vital="yes" />
+			</Component>
+
+		</DirectoryRef>
+		<DirectoryRef  Id="VSROOTDIR">
+			<Directory Id="csharpTemplates" Name="VC#" >
+				<Directory Id="TemplatesDirectory" Name="Templa1" LongName="CSharpProjects">
+					<Directory Id="CandleTemplatesDirectory" Name="asf" LongName="Candle">
+						<Component Id="templateFiles" Guid="6371FC04-959A-41c5-B5C5-CD0065DCE103" DiskId="1">
+							<File Id="_vsdir" Name="comp1.vsd" LongName="component.vsdir" src="SourceDir\..\DslPackage\Code\WizardTemplate\Candle\candle.vsdir" Vital="yes" />
+							<File Id="_vsz" Name="comp2.vsz" LongName="component.vsz" src="SourceDir\..\DslPackage\Code\WizardTemplate\Candle\candle.vsz" Vital="yes" />
+						</Component>
+					</Directory>
+				</Directory>
+			</Directory>
+		</DirectoryRef>
+
+		<DirectoryRef Id="Install">
+			<!-- Simule le Regasm -->
+			<Component Id="Candle_regasm1" DiskId="1" Guid="FE524A94-5C69-4792-8B13-ABE0A8171FCF">
+				<Registry Id="Candle_registry1" Root="HKCR" Type="string" KeyPath="yes"
+				  Key="DSLFactory.Candle.SystemModel.TemplateWizards.NewProjectWizard"
+				  Value="DSLFactory.Candle.SystemModel.TemplateWizards.NewProjectWizard" />
+			</Component>
+			<Component Id="Candle_regasm2" DiskId="1" Guid="B797E6FC-9B3C-4f80-A886-BA4DAF9EE91E">
+				<Registry Id="Candle_registry2" Root="HKCR" Type="string" KeyPath="yes"
+				  Key="DSLFactory.Candle.SystemModel.TemplateWizards.NewProjectWizard\CLSID"
+				  Value="33456E91-22C7-4c16-AE16-FEBB0579C1CA" />
+			</Component>
+			<Component Id="Candle_regasm3" DiskId="1" Guid="4FD11EA6-69A9-4210-94A6-5A12546772E5">
+				<Registry Id="Candle_registry3" Root="HKCR" Type="string" KeyPath="yes"
+				  Key="CLSID\{33456E91-22C7-4c16-AE16-FEBB0579C1CA}"
+				  Value="DSLFactory.Candle.SystemModel.TemplateWizards.NewProjectWizard" />
+			</Component>
+			<Component Id="Candle_regasm4" DiskId="1" Guid="1221502B-2A1E-4029-912A-707AD9A4889E">
+				<Registry Id="Candle_registry4" Root="HKCR" Type="string" KeyPath="yes"
+				  Key="CLSID\{33456E91-22C7-4c16-AE16-FEBB0579C1CA}\InprocServer32"
+				  Value="mscoree.dll" />
+			</Component>
+			<Component Id="Candle_regasm5" DiskId="1" Guid="86EFCA1B-C751-43f1-AF10-876511FBD6E8">
+				<Registry Id="Candle_registry5" Root="HKCR" Type="string" KeyPath="yes"
+				  Key="CLSID\{33456E91-22C7-4c16-AE16-FEBB0579C1CA}\InprocServer32"
+				  Name="ThreadingModel" Value="Both" />
+			</Component>
+			<Component Id="Candle_regasm6" DiskId="1" Guid="A87EB4DC-6574-4a9e-AFB2-E5D2D3096DEA">
+				<Registry Id="Candle_registry6" Root="HKCR" Type="string" KeyPath="yes"
+				  Key="CLSID\{33456E91-22C7-4c16-AE16-FEBB0579C1CA}\InprocServer32"
+				  Name="Class" Value="DSLFactory.Candle.SystemModel.TemplateWizards.NewProjectWizard" />
+			</Component>
+			<!-- Attention au n° de version de l'assembly -->
+			<Component Id="Candle_regasm7" DiskId="1" Guid="EAA994AA-4FA9-4bd2-B5F0-C754EC122632">
+				<Registry Id="Candle_registry7" Root="HKCR" Type="string" KeyPath="yes"
+				  Key="CLSID\{33456E91-22C7-4c16-AE16-FEBB0579C1CA}\InprocServer32"
+				  Name="Assembly" Value="DSLFactory.Candle.SystemModel.DSLPackage, Version=0.9.0.0, Culture=neutral, PublicKeyToken=13017B9653BAEDB6" />
+			</Component>
+			<Component Id="Candle_regasm8" DiskId="1" Guid="1C53FA7C-2420-486f-9F05-56160DD3A4DA">
+				<Registry Id="Candle_registry8" Root="HKCR" Type="string" KeyPath="yes"
+				  Key="CLSID\{33456E91-22C7-4c16-AE16-FEBB0579C1CA}\InprocServer32"
+				  Name="RuntimeVersion" Value="v2.0.50727" />
+			</Component>
+			<Component Id="Candle_regasm9" DiskId="1" Guid="F76C955B-3FE9-4986-A1D5-05B021CF0911">
+				<Registry Id="Candle_registry9" Root="HKCR" KeyPath="yes"
+				  Key="CLSID\{33456E91-22C7-4c16-AE16-FEBB0579C1CA}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" />
+			</Component>
+			<Component Id="Candle_regasm10" DiskId="1" Guid="CCBFA61D-5478-4ea7-8A7F-C989B401E045">
+				<Registry Id="Candle_registry10" Root="HKCR" Type="string" KeyPath="yes"
+				  Key="CLSID\33456E91-22C7-4c16-AE16-FEBB0579C1CA\ProgId"
+				  Value="DSLFactory.Candle.SystemModel.TemplateWizards.NewProjectWizard" />
+			</Component>
+		</DirectoryRef>
+
+
+	</Fragment>
+</Wix>

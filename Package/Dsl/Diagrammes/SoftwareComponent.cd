@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="DSLFactory.Candle.SystemModel.CustomizableElement">
+    <Position X="3" Y="0.75" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Validations\StrategyCandidateElement.cs</FileName>
+      <HashCode>ASAECECAACAAAIAIAQAAAAAAAAQAACgAAIAAAAAAEAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="CanMerge" Hidden="true" />
+      <Method Name="CustomizableElement" Hidden="true" />
+      <Property Name="DependencyProperties" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="ExecuteWizard" Hidden="true" />
+      <Method Name="GenerateCode" Hidden="true" />
+      <Method Name="GetStrategies" Hidden="true" />
+      <Method Name="GetStrategyCustomProperty" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Method Name="OnElementAdded" Hidden="true" />
+      <Field Name="RootNameDomainPropertyId" Hidden="true" />
+      <Field Name="rootNamePropertyStorage" Hidden="true" />
+      <Method Name="ValidateStrategies" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.CustomizableElement.RootNamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <Lollipop Position="1.415" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.CandleModel">
+    <Position X="1.75" Y="4.75" Width="6" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Model.cs</FileName>
+      <HashCode>cVgACAmywIgQAB4AQQAADAIGDAwDAGgYGEPAQBFgEMA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SoftwareComponent" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ExternalComponents" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Property Name="BinaryComponent" Hidden="true" />
+      <Method Name="CanMerge" Hidden="true" />
+      <Method Name="ChooseMergeTarget" Hidden="true" />
+      <Method Name="CommitExternalAssemblyDelete" Hidden="true" />
+      <Method Name="CommitPendingsDelete" Hidden="true" />
+      <Property Name="Component" Hidden="true" />
+      <Field Name="ComponentTypeDomainPropertyId" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Field Name="DotNetFrameworkVersionDomainPropertyId" Hidden="true" />
+      <Field Name="dotNetFrameworkVersionPropertyStorage" Hidden="true" />
+      <Method Name="GetComponentTypeValue" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Method Name="CandleModel" Hidden="true" />
+      <Field Name="PathDomainPropertyId" Hidden="true" />
+      <Field Name="pathPropertyStorage" Hidden="true" />
+      <Field Name="pendingsElementsDeleted" Hidden="true" />
+      <Field Name="pendingsExternalAssemblyDeleted" Hidden="true" />
+      <Method Name="RegisterElementPendingDelete" Hidden="true" />
+      <Method Name="RegisterExternalAssemblyPendingDelete" Hidden="true" />
+      <Field Name="StrategyTemplateDomainPropertyId" Hidden="true" />
+      <Field Name="strategyTemplatePropertyStorage" Hidden="true" />
+      <Method Name="UnregisterExternalAssemblyPendingDelete" Hidden="true" />
+      <Field Name="UrlDomainPropertyId" Hidden="true" />
+      <Field Name="urlPropertyStorage" Hidden="true" />
+      <Method Name="ValidateMonikerAmbiguity" Hidden="true" />
+      <Field Name="VersionDomainPropertyId" Hidden="true" />
+      <Field Name="versionPropertyStorage" Hidden="true" />
+      <Field Name="VisibilityDomainPropertyId" Hidden="true" />
+      <Field Name="visibilityPropertyStorage" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.UrlPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.VisibilityPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.ComponentTypePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.VersionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.StrategyTemplatePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.DotNetFrameworkVersionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.RepositoryVersionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.IsLibraryPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.BaseAddressPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.PathPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <AssociationLine Name="ExternalComponents" Type="DSLFactory.Candle.SystemModel.ExternalComponent">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.506" Y="0.07" Height="0.16" Width="4" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.SoftwareComponent">
+    <Position X="9.25" Y="4.75" Width="4.75" />
+    <TypeIdentifier>
+      <FileName>Code\Models\SoftwareComponent.cs</FileName>
+      <HashCode>QxABAgAAAAAAAAAIQQAA4AwBSAQAABgNAYAoEAAEEAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DataLayer" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Layers" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Method Name="CanMerge" Hidden="true" />
+      <Method Name="CanMergeSoftwareLayer" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="GenerateCode" Hidden="true" />
+      <Field Name="layerLevelCache" Hidden="true" />
+      <Method Name="MergeConfigure" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeDisconnectLayerPackage" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Method Name="MergeRelateLayerPackage" Hidden="true" />
+      <Method Name="SoftwareComponent" Hidden="true" />
+      <Method Name="ValidateAssemblyNames" Hidden="true" />
+      <Method Name="ValidateNamespace" Hidden="true" />
+      <Method Name="ValidateUILayer" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.SoftwareComponent.LayerLevelComparer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Code\Models\SoftwareComponent.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <AssociationLine Name="Layers" Type="DSLFactory.Candle.SystemModel.SoftwareLayer" FixedFromPoint="true">
+      <Path>
+        <Point X="14" Y="5.823" />
+        <Point X="15.667" Y="5.823" Type="JumpStart" />
+        <Point X="15.833" Y="5.823" Type="JumpEnd" />
+        <Point X="17.539" Y="5.823" Type="JumpStart" />
+        <Point X="17.705" Y="5.823" Type="JumpEnd" />
+        <Point X="17.75" Y="5.823" />
+      </Path>
+    </AssociationLine>
+    <Lollipop Position="0.117" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Component">
+    <Position X="6.5" Y="0.75" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Models\SoftwareComponent.cs</FileName>
+      <HashCode>AQAAAACBAAAAAAAAAAAAAAAAAAQAICAAAAgAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="Component" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Field Name="NamespaceDomainPropertyId" Hidden="true" />
+      <Field Name="namespacePropertyStorage" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.Component.NamespacePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.SoftwareLayer">
+    <Position X="17.75" Y="4.5" Width="6.75" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Layer.cs</FileName>
+      <HashCode>AQAAEECDAEgAAACIAQAAIAAIIAQEIAgAAABAEAAECKA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_vsProjectName" Hidden="true" />
+      <Method Name="CanMerge" Hidden="true" />
+      <Method Name="ChooseMergeTarget" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="GenerateChildsCode" Hidden="true" />
+      <Method Name="GenerateCode" Hidden="true" />
+      <Method Name="GetProjectFolderName" Hidden="true" />
+      <Method Name="GetVSProjectNameValue" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Field Name="NamespaceDomainPropertyId" Hidden="true" />
+      <Field Name="namespacePropertyStorage" Hidden="true" />
+      <Method Name="SetVSProjectNameValue" Hidden="true" />
+      <Method Name="SoftwareLayer" Hidden="true" />
+      <Field Name="TemplateDomainPropertyId" Hidden="true" />
+      <Field Name="templatePropertyStorage" Hidden="true" />
+      <Field Name="VSProjectNameDomainPropertyId" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.SoftwareLayer.TemplatePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.SoftwareLayer.NamespacePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.SoftwareLayer.VSProjectNamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <Lollipop Position="1.499" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.InterfaceLayer">
+    <Position X="21.5" Y="11.5" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Code\Models\InterfaceLayer.cs</FileName>
+      <HashCode>AQAAAAAAAAAAAAAAAQAgIAAIAERAAAgBAAQAAAAgEAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ServiceContracts" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Method Name="CanMerge" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="GenerateChildsCode" Hidden="true" />
+      <Method Name="InterfaceLayer" Hidden="true" />
+      <Field Name="LevelDomainPropertyId" Hidden="true" />
+      <Field Name="levelPropertyStorage" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Method Name="ValidateMultiplicity" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.InterfaceLayer.LevelPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <AssociationLine Name="ServiceContracts" Type="DSLFactory.Candle.SystemModel.ServiceContract" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="23.875" Y="11.5" />
+        <Point X="23.875" Y="10.194" />
+        <Point X="22.958" Y="10.194" Type="JumpStart" />
+        <Point X="22.792" Y="10.194" Type="JumpEnd" />
+        <Point X="21.5" Y="10.194" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.1" Y="0.227" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Layer">
+    <Position X="23.75" Y="13.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Layer.cs</FileName>
+      <HashCode>AQAJAAAAAEEAgQAAASAAIBAJAAVAAggBAEAAAQAAMAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Classes" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Method Name="CanMerge" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="GenerateChildsCode" Hidden="true" />
+      <Method Name="Layer" Hidden="true" />
+      <Method Name="MergeConfigure" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Method Name="ValidateName" Hidden="true" />
+      <Method Name="ValidateNamespace" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.Layer.HostingContextPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.Layer.StartupProjectPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.DataLayer">
+    <Position X="6" Y="9.5" Width="7.5" />
+    <TypeIdentifier>
+      <FileName>Code\Models\DataLayer.cs</FileName>
+      <HashCode>AYgAEAAQAAEAAIAgAQIAIAABAAYAABgiAAAkAAAAEQI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="CanMerge" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="GenerateChildsCode" Hidden="true" />
+      <Method Name="MergeConfigure" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Method Name="DataLayer" Hidden="true" />
+      <Method Name="ValidateNamespaceCollisions" Hidden="true" />
+      <Field Name="XmlNamespaceDomainPropertyId" Hidden="true" />
+      <Field Name="xmlNamespacePropertyStorage" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.DataLayer.ExternalDataLayerVisitor" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Code\Models\DataLayer.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.DataLayer.XmlNamespacePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.ServiceContract">
+    <Position X="18.5" Y="9.25" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Models\ServiceContract.cs</FileName>
+      <HashCode>AQAAAACAAAAAAAAAAQAAAQABAAQAACgEAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Implementations" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="ServiceContract" Hidden="true" />
+    </Members>
+    <Lollipop Position="1.71" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.ClassImplementation">
+    <Position X="14.25" Y="12" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Models\ClassImplementation.cs</FileName>
+      <HashCode>AQAAAACIAAAAAAAMAAACACAAAAAAADAEAAAIBBAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="CheckName" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="GenerateCode" Hidden="true" />
+      <Method Name="GetChildrenForCategory" Hidden="true" />
+      <Method Name="GetMemberName" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Lollipop Position="2.044" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.ExternalComponent">
+    <Position X="1.5" Y="10.25" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Models\ExternalComponent.cs</FileName>
+      <HashCode>IwABAAKBAAggAAgADAAAAAAAAAUCJGAAAAggAAAAEQI=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Ports" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="ExternalComponent" Hidden="true" />
+      <Method Name="UpdateFromModel" Hidden="true" />
+      <Field Name="VersionDomainPropertyId" Hidden="true" />
+      <Field Name="versionPropertyStorage" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.ExternalComponent.VersionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.ExternalComponent.ModelMonikerPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.ExternalComponent.IsLastVersionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.ExternalComponent.DescriptionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.ExternalComponent.NamespacePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <AssociationLine Name="Ports" Type="DSLFactory.Candle.SystemModel.ExternalPublicPort">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.732" Y="0.141" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.AbstractLayer">
+    <Position X="10" Y="0.75" Width="5" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Layer.cs</FileName>
+      <HashCode>AQAAAAAAAADAAAAAAAAAAAECABAAACAAAAABAAAAEAQ=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Artifacts" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Method Name="AbstractLayer" Hidden="true" />
+      <Field Name="AssemblyNameDomainPropertyId" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Struct Name="DSLFactory.Candle.SystemModel.AbstractLayer.LinkDef" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Code\Models\Layer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Class Name="DSLFactory.Candle.SystemModel.AbstractLayer.AssemblyNamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.TypeWithOperations">
+    <Position X="19.25" Y="0.75" Width="5.25" />
+    <TypeIdentifier>
+      <FileName>Code\Models\TypeWithOperations.cs</FileName>
+      <HashCode>AQACAAACAAgAAIEEAQACgAIBAgQBAQgAAAAABAAIAgA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Operations" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Method Name="CanMerge" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="GetChildrenForCategory" Hidden="true" />
+      <Method Name="GetDefaultType" Hidden="true" />
+      <Method Name="GetEditProperties" Hidden="true" />
+      <Method Name="MergeConfigure" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Method Name="TypeWithOperations" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.TypeWithOperations.CustomAttributesPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <InheritanceLine Type="DSLFactory.Candle.SystemModel.CustomizableElement" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.281" Y="0.75" />
+        <Point X="5.281" Y="0.375" />
+        <Point X="20.062" Y="0.375" />
+        <Point X="20.062" Y="0.75" />
+      </Path>
+    </InheritanceLine>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Operation">
+    <Position X="25.5" Y="0.75" Width="4.75" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Operation.cs</FileName>
+      <HashCode>AQACAACCAAAEAAAEgYACQAIAgAQAAAgAIAAAAAAMAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Arguments" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Method Name="CanMerge" Hidden="true" />
+      <Method Name="DeclareArgument" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="GetChildrenForCategory" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Method Name="Operation" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.Operation.CustomAttributesPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Argument">
+    <Position X="26.25" Y="8.75" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Argument.cs</FileName>
+      <HashCode>AQAAAACAAAAAAAAAgCAAAAAAAAAAAIAAAAFAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="Argument" Hidden="true" />
+      <Field Name="DirectionDomainPropertyId" Hidden="true" />
+      <Field Name="directionPropertyStorage" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="GetHashCode" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.Argument.DirectionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.TypeMember">
+    <Position X="25.5" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Models\TypeMember.cs</FileName>
+      <HashCode>AQAAEAAAAUAAAABEAAAAAAAAAQAIACBAgQAAAAAAAQA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="DomainClassId" Hidden="true" />
+      <Field Name="IsCollectionDomainPropertyId" Hidden="true" />
+      <Field Name="isCollectionPropertyStorage" Hidden="true" />
+      <Method Name="TypeMember" Hidden="true" />
+      <Field Name="TypeDomainPropertyId" Hidden="true" />
+      <Field Name="typePropertyStorage" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.TypeMember.TypePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.TypeMember.IsCollectionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.TypeMember.DisplayNamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <Lollipop Position="1.038" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.NamedElement">
+    <Position X="0.5" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Code\Models\NamedElement.cs</FileName>
+      <HashCode>AQAAIAAEUAAAAAAAAEAAAAQBAAAAAAEAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="CommentDomainPropertyId" Hidden="true" />
+      <Field Name="commentPropertyStorage" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="MergeConfigure" Hidden="true" />
+      <Method Name="NamedElement" Hidden="true" />
+      <Field Name="NameDomainPropertyId" Hidden="true" />
+      <Field Name="namePropertyStorage" Hidden="true" />
+      <Method Name="ValidateNameNotNull" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.NamedElement.NamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.NamedElement.CommentPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Artifact">
+    <Position X="16" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Artifact.cs</FileName>
+      <HashCode>AQAAAAAAAQAIACAEAAAAAAAACAAAQABEAQAAACBEAEQ=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="Artifact" Hidden="true" />
+      <Field Name="ConfigurationModeDomainPropertyId" Hidden="true" />
+      <Field Name="configurationModePropertyStorage" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Field Name="FileNameDomainPropertyId" Hidden="true" />
+      <Field Name="fileNamePropertyStorage" Hidden="true" />
+      <Field Name="InitialFileNameDomainPropertyId" Hidden="true" />
+      <Field Name="initialFileNamePropertyStorage" Hidden="true" />
+      <Field Name="ScopeDomainPropertyId" Hidden="true" />
+      <Field Name="scopePropertyStorage" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+      <Field Name="TypeDomainPropertyId" Hidden="true" />
+      <Field Name="typePropertyStorage" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.Artifact.FileNamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.Artifact.TypePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.Artifact.InitialFileNamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.Artifact.ScopePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.Artifact.ConfigurationModePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.ExternalPublicPort">
+    <Position X="1.5" Y="14" Width="3.75" />
+    <TypeIdentifier>
+      <FileName>Code\Models\ExternalComponent.cs</FileName>
+      <HashCode>AYAAAQCgAAAAAAAAACAAQAAEQAAAACAAAABAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="ComponentPortMonikerDomainPropertyId" Hidden="true" />
+      <Field Name="componentPortMonikerPropertyStorage" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="ExternalPublicPort" Hidden="true" />
+      <Field Name="IsInGacDomainPropertyId" Hidden="true" />
+      <Field Name="isInGacPropertyStorage" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.ExternalPublicPort.ComponentPortMonikerPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.ExternalPublicPort.IsInGacPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Interface Name="DSLFactory.Candle.SystemModel.Strategies.ICustomizableElement">
+    <Position X="8.5" Y="13.75" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Interfaces\IStrategyProvider.cs</FileName>
+      <HashCode>AAAGCACAAAAAAIAAAAAAAAQAAAAAACAAAIAAAQAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="ExecuteWizard" Hidden="true" />
+      <Method Name="GetStrategies" Hidden="true" />
+      <Method Name="GetStrategyCustomProperty" Hidden="true" />
+    </Members>
+  </Interface>
+</ClassDiagram>

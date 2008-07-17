@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="strategyManifest" targetNamespace="http://www.dslfactory.org/schemas/strategyManifest.xsd" elementFormDefault="qualified" xmlns="http://www.dslfactory.org/schemas/strategyManifest.xsd" xmlns:mstns="http://www.dslfactory.org/schemas/strategyManifest.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="manifest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="package" type="xs:string" />
+        <xs:element name="strategyType" type="xs:string" />
+        <xs:element name="fileName" type="xs:string" />
+        <xs:element name="group" type="xs:string" />
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="path" type="xs:string" />
+        <xs:element name="Description">
+          <xs:complexType>
+            <xs:sequence />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="StrategyConfiguration" type="xs:anyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

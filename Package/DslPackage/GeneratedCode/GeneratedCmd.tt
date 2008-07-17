@@ -1,0 +1,25 @@
+<#
+/***************************************************************************
+         Copyright (c) Microsoft Corporation, All rights reserved.             
+    This code sample is provided "AS IS" without warranty of any kind, 
+    it is not recommended for use in a production environment.
+***************************************************************************/
+#>
+<#@ Dsl processor="DslDirectiveProcessor" requires="fileName='..\..\Dsl\DslDefinition.dsl'" #>
+<#@ include file="DslPackage\GeneratedCmd.tt" #>
+
+#define guidCmdSet		{ 0x47747347, 0x8334, 0x4049, { 0xac, 0x3f, 0x61, 0x64, 0xb9, 0xc7, 0xc8, 0xdd } }
+#define guidEditor		{ 0xa347c751, 0x7722, 0x4fa1, { 0xb7, 0x3e, 0x2e, 0x03, 0xdb, 0x41, 0xd1, 0xc9 } }
+
+// Ajout d'un bouton dans le solution explorer
+#define SolutionExplorerToolBar			0x9000
+#define SolutionExplorerToolBarGroup	0x9001
+#define modelsGuidEditor { 0x56AF6F2B, 0xEF94, 0x4297, { 0x98, 0x57, 0x86, 0x53, 0xA0, 0xAE, 0x02, 0xD8 } }
+
+// Ajout du menu de candle
+#define CandleTopLevelMenu              0xA000
+#define CandleTopLevelMenuGroup         0xA001
+#define VSTopLevelGroup                 0xA002
+
+#define DiagramToolBar                  0xB000
+#define DiagramToolBarGroup             0xB001

@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="DSLFactory.Candle.SystemModel.ModelLoader" BaseTypeListCollapsed="true">
+    <Position X="15" Y="13.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\ModelLoader.cs</FileName>
+      <HashCode>AAIAAIQAACAAAEQAAggAAGAAAhABAAAAAAgACUBAACA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DataLayer" />
+      <Property Name="Model" />
+    </ShowAsAssociation>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.ModelLoader.CacheItem" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Code\Repository\ModelLoader.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.RepositoryFile" Collapsed="true">
+    <Position X="25.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\RepositoryFile.cs</FileName>
+      <HashCode>AIAAAAAAAAACBAAAgAAAAAAAAAgEAAACAAAAAEEAgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.RepositoryFileInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\RepositoryFileInfo.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.RepositoryManager">
+    <Position X="0.5" Y="12.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\RepositoryManager.cs</FileName>
+      <HashCode>AAAAIAkAEAQAwAGgIiIoAABAAAQCBCQEQCAAQBAAAgA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ModelsMetadata" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.RepositoryZipFile" Collapsed="true">
+    <Position X="25.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\RepositoryZipFile.cs</FileName>
+      <HashCode>EASAAAAAAAgAAAAAEAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.DomainItem" Collapsed="true">
+    <Position X="8" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Domains\DomainItem.cs</FileName>
+      <HashCode>gABAIAAAAAAABIIAAACAQAQQAAEAAAAAAAAAAAACAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.DomainItemCollection" Collapsed="true">
+    <Position X="27" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Domains\DomainItemCollection.cs</FileName>
+      <HashCode>AAJAgAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.DomainManager">
+    <Position X="7.75" Y="16.25" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Domains\DomainManager.cs</FileName>
+      <HashCode>AIAAAIAAAAQARAAAAgAgAQAAAAAAAAAAQAEAQAAAAAQ=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Domains" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.CandleModelMerger" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Merger\CandleModelMerger.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.ComponentMetadataMap">
+    <Position X="10.25" Y="11.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Metadata\ComponentMetadataMap.cs</FileName>
+      <HashCode>IQAAIAAAAACAIAAAAACAEAQCAAAAAEAAAAAQAAAEBAE=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="InitialComponentType" />
+      <Property Name="MetaData" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.ComponentModelMetadata">
+    <Position X="7" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Metadata\ComponentModelMetadata.cs</FileName>
+      <HashCode>IEAGIiAAAACyIBqEgCJA1QYIQAYAAIABAGAACAIABQA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ComponentType" />
+      <Property Name="Location" />
+      <Property Name="Version" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.MetadataChangedEventArg">
+    <Position X="3.5" Y="7.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Metadata\MetadataChangedEventArg.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Metadata" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.MetadataCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Metadata\MetadataCollection.cs</FileName>
+      <HashCode>AQSAAAAAAAAAAAQAAEAAAAAQEGAIAQCkwQAAAABAAAE=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.ModelsRepositoryService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Metadata\ModelsRepositoryService.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAgAAgQAQAAEARAAAACAACIIAABEAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.Providers.FileRepositoryProvider" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\FileRepositoryProvider.cs</FileName>
+      <HashCode>AAIAAQAAAMSCQAAAIAAAAAQGAAAAgAAEAAAEAAACAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Repository.Providers.WebServiceRepositoryProvider" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceRepositoryProvider.cs</FileName>
+      <HashCode>AIIAAQAAAISAQACAIAAEgAQEAAAAgAAAAAAEAAACAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.WSReferentiel.RepositoryStrategiesService" Collapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceStrategiesReference.cs</FileName>
+      <HashCode>AAAAAAAAACAAAAAAABAAgAAAAAAAAAAAAAAAAAAGAAI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.WSReferentiel.GetStrategyManifestsCompletedEventArgs" Collapsed="true">
+    <Position X="10.25" Y="2" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceStrategiesReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.WSReferentiel.RepositoryFileService" Collapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>AgIAAkYAECYAWIARIQAQkAQABAgAgAQAyAAAAAAIAGE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.WSReferentiel.GetVersionCompletedEventArgs" Collapsed="true">
+    <Position X="14" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.WSReferentiel.GetMetadataCompletedEventArgs" Collapsed="true">
+    <Position X="7" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.WSReferentiel.GetAllMetadataCompletedEventArgs" Collapsed="true">
+    <Position X="3.5" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.WSReferentiel.EnumerateCategoryCompletedEventArgs" Collapsed="true">
+    <Position X="17.25" Y="2" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Dependencies.CheckReferenceVisitor" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\CheckReferenceVisitor.cs</FileName>
+      <HashCode>AwAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Dependencies.ReferenceVisitor" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\ReferenceVisitor.cs</FileName>
+      <HashCode>KMFIEIAAAAACABQAAAFAAIAAAACQAAAABAgAAAAgAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Dependencies.ConfigurationVisitor" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="6.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\ConfigurationVisitor.cs</FileName>
+      <HashCode>AAAAAAAAAABAABQQAAAAAAAAAAAAAAAAAAGgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Configurations" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Dependencies.DependencyGraphVisitor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\DependencyGraphVisitor.cs</FileName>
+      <HashCode>AAAAAAAAAAAADAQQAAIAAAAAAAgAAAAAAAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Struct Name="DSLFactory.Candle.SystemModel.Dependencies.DependencyGraphVisitor.ModelKey" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Code\Repository\References\DependencyGraphVisitor.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="DSLFactory.Candle.SystemModel.Dependencies.DependencyGraphVisitor.RelationShip" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Code\Repository\References\DependencyGraphVisitor.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Dependencies.ReferencesHelper" Collapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\ReferencesHelper.cs</FileName>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAAAEEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Dependencies.ReferenceWalker" Collapsed="true">
+    <Position X="23.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\ReferencesWalker.cs</FileName>
+      <HashCode>AAAIAIAAAAAAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.ConfigurationMode" Collapsed="true">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\ConfigurationMode.cs</FileName>
+      <HashCode>CABAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAAAEAAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.ReferencesCollection" Collapsed="true">
+    <Position X="27" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\ReferencesCollection.cs</FileName>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.DataLayer" Collapsed="true">
+    <Position X="17.75" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Models\DataLayer.cs</FileName>
+      <HashCode>AYgAEAAQAAEAAIAgAQIAIAABAAYAABgiAAAkAAAAEQI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.CandleModel" Collapsed="true">
+    <Position X="12.75" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Model.cs</FileName>
+      <HashCode>cVoBCAmiwIgQAB4AQQAADAIGBAwCAGgQGENAQFFgEMA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.VersionInfo" Collapsed="true">
+    <Position X="10.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Types\VersionInfo.cs</FileName>
+      <HashCode>AIAAJAAAAAAAAAAEgAAAIAAAAEAAgIJAAIAgAAAAICA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.ConfigurationPart">
+    <Position X="15" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>GeneratedCode\DomainClasses.cs</FileName>
+      <HashCode>AVAAAAAAAAAACIAAAEAAARQAAAAIAAEEAEQAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Layer" />
+      <Property Name="Visibility" />
+    </ShowAsAssociation>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.ConfigurationPart.XmlContentPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.ConfigurationPart.NamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.ConfigurationPart.EnabledPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.ConfigurationPart.VisibilityPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.AbstractLayer" Collapsed="true">
+    <Position X="14.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Models\AbstractLayer.cs</FileName>
+      <HashCode>AQAAAAAAAADAAAAAAAAAAAECABAAACAAAAABAAAAEAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.ComponentModel.AsyncCompletedEventArgs" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Struct Name="DSLFactory.Candle.SystemModel.Dependencies.ReferenceContext" Collapsed="true">
+    <Position X="21.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\ReferenceContext.cs</FileName>
+      <HashCode>AAAAAAAAAIQAACEABAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DSLFactory.Candle.SystemModel.Dependencies.ReferenceItem" Collapsed="true">
+    <Position X="23.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\ReferenceItem.cs</FileName>
+      <HashCode>AAAIAAAABkQAACgABAgAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="DSLFactory.Candle.SystemModel.Repository.IModelsMetadata" Collapsed="true">
+    <Position X="3.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Interfaces\IModelsMetadata.cs</FileName>
+      <HashCode>AAAAACAAAAAAAAAAAAQAQAAEABAAAAAAAAAIAABEAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="DSLFactory.Candle.SystemModel.Repository.RepositoryLocation" Collapsed="true">
+    <Position X="3.5" Y="10" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Metadata\RepositoryLocation.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAgAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DSLFactory.Candle.SystemModel.Repository.PathKind" Collapsed="true">
+    <Position X="21.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Metadata\PathKind.cs</FileName>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DSLFactory.Candle.SystemModel.Repository.PublishEventType" Collapsed="true">
+    <Position X="23.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Metadata\PublishEventType.cs</FileName>
+      <HashCode>AAAACIAAAACAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAQ=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DSLFactory.Candle.SystemModel.ReferenceScope" Collapsed="true">
+    <Position X="25.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\References\ReferenceScope.cs</FileName>
+      <HashCode>AAgAAAAAAAAAAAAACEAAAAAAAAAAAAAAAIAAAAEAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DSLFactory.Candle.SystemModel.ComponentType" Collapsed="true">
+    <Position X="10.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Types\ComponentType.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DSLFactory.Candle.SystemModel.Visibility" Collapsed="true">
+    <Position X="14.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>GeneratedCode\DomainModel.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAEAAAAAAAAAAAAAAAQAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="DSLFactory.Candle.SystemModel.Repository.MetadataChangedEventHandler" Collapsed="true">
+    <Position X="25.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Metadata\MetadataCollection.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="DSLFactory.Candle.SystemModel.WSReferentiel.GetGetStrategyManifestsCompletedEventHandler" Collapsed="true">
+    <Position X="27" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceStrategiesReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="DSLFactory.Candle.SystemModel.WSReferentiel.CreateDomainPathCompletedEventHandler" Collapsed="true">
+    <Position X="21.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="DSLFactory.Candle.SystemModel.WSReferentiel.RemoveDomainPathCompletedEventHandler" Collapsed="true">
+    <Position X="27" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="DSLFactory.Candle.SystemModel.WSReferentiel.GetVersionCompletedEventHandler" Collapsed="true">
+    <Position X="23.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="DSLFactory.Candle.SystemModel.WSReferentiel.GetMetadataCompletedEventHandler" Collapsed="true">
+    <Position X="21.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="DSLFactory.Candle.SystemModel.WSReferentiel.GetAllMetadataCompletedEventHandler" Collapsed="true">
+    <Position X="25.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="DSLFactory.Candle.SystemModel.WSReferentiel.EnumerateCategoryCompletedEventHandler" Collapsed="true">
+    <Position X="23.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Repository\Providers\WebServiceFileReference.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAACAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Delegate>
+</ClassDiagram>

@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="DSLFactory.Candle.SystemModel.Strategies.StrategyBase">
+    <Position X="6.75" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\StrategyBase.cs</FileName>
+      <HashCode>QQAAliCAAgDgJAgGIIMACAQAIkAQgwAQQIQgAQAAAAM=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Context" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="_context" Hidden="true" />
+      <Field Name="_currentElement" Hidden="true" />
+      <Field Name="_defaultGeneratedFilePathPattern" Hidden="true" />
+      <Field Name="_description" Hidden="true" />
+      <Field Name="_displayName" Hidden="true" />
+      <Field Name="_enabled" Hidden="true" />
+      <Field Name="_helpURL" Hidden="true" />
+      <Field Name="_owner" Hidden="true" />
+      <Field Name="_packageName" Hidden="true" />
+      <Field Name="_strategyFile" Hidden="true" />
+      <Field Name="_strategyGroup" Hidden="true" />
+      <Field Name="_strategyId" Hidden="true" />
+      <Field Name="_strategyLocationCache" Hidden="true" />
+      <Field Name="_strategyPath" Hidden="true" />
+      <Method Name="CheckPropertyValid" Hidden="true" />
+      <Method Name="ResolvePattern" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Strategies.StrategyManager">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\StrategyManager.cs</FileName>
+      <HashCode>AQREnIAAAAEQAMQABEAAEUkAwAIAAcCQSIYAAACIACQ=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TargetLanguage" />
+      <Property Name="NamingStrategy" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Packages" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Field Name="_fileName" Hidden="true" />
+      <Field Name="_instance" Hidden="true" />
+      <Field Name="_internalPackage" Hidden="true" />
+      <Field Name="_languageConfiguration" Hidden="true" />
+      <Field Name="_namingStrategy" Hidden="true" />
+      <Field Name="_namingStrategyNode" Hidden="true" />
+      <Field Name="_packages" Hidden="true" />
+      <Field Name="_strategies" Hidden="true" />
+      <Field Name="_strategiesNode" Hidden="true" />
+      <Field Name="_strategyTypes" Hidden="true" />
+      <Field Name="ConfigFolder" Hidden="true" />
+      <Field Name="DefaultStrategiesFileName" Hidden="true" />
+      <Field Name="DefaultStrategiesFileNameExtension" Hidden="true" />
+      <Field Name="EmptyStrategyFileContent" Hidden="true" />
+      <Method Name="EnsureStrategiesFileExists" Hidden="true" />
+      <Field Name="fileSystemWatcher" Hidden="true" />
+      <Method Name="fileSystemWatcher_Changed" Hidden="true" />
+      <Method Name="GetStrategies" Hidden="true" />
+      <Method Name="GetStrategyOwnerName" Hidden="true" />
+      <Method Name="InitializeWatcher" Hidden="true" />
+      <Method Name="SerializeFragment" Hidden="true" />
+      <Property Name="StrategiesFileName" Hidden="true" />
+      <Method Name="StrategyManager" Hidden="true" />
+      <Method Name="SuspendWatcher" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Strategies.LanguageConfiguration">
+    <Position X="4" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Config\LanguageConfiguration.cs</FileName>
+      <HashCode>QAAAIAAAAEAAAAAQAAAAAAQAAAAAAQABAMAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_defaultClassTemplateName" Hidden="true" />
+      <Field Name="_defaultLibraryTemplateName" Hidden="true" />
+      <Field Name="_extension" Hidden="true" />
+      <Field Name="_name" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Strategies.StrategyPackage">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Config\StrategyPackage.cs</FileName>
+      <HashCode>EAAAIgAAIAAAQYACQAAAAWcAAAAAACgAIAAAFAAgAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Manifests" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Field Name="_assemblies" Hidden="true" />
+      <Field Name="_manifests" Hidden="true" />
+      <Field Name="_name" Hidden="true" />
+      <Field Name="_serverUrl" Hidden="true" />
+      <Field Name="_uniqueName" Hidden="true" />
+      <Method Name="AssemblyResolve" Hidden="true" />
+      <Method Name="CreateStrategyInstance" Hidden="true" />
+      <Method Name="Extract" Hidden="true" />
+      <Method Name="ExtractAndInitialize" Hidden="true" />
+      <Method Name="ExtractManifests" Hidden="true" />
+      <Method Name="FindManifests" Hidden="true" />
+      <Method Name="GetStrategyType" Hidden="true" />
+      <Method Name="Initialize" Hidden="true" />
+      <Field Name="lastSynchronizationDate" Hidden="true" />
+      <Method Name="LoadAssembly" Hidden="true" />
+      <Method Name="LoadAssemblyInternal" Hidden="true" />
+      <Field Name="ManifestExtension" Hidden="true" />
+      <Method Name="StrategyPackage" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.GenerationContext">
+    <Position X="10" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\CodeGeneration\GenerationContext.cs</FileName>
+      <HashCode>AAAAACAAAMAgAACAJiiACAAAAISgAAiAAAgAAAgAABE=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_codeFolder" Hidden="true" />
+      <Field Name="_firstImplementation" Hidden="true" />
+      <Field Name="_mode" Hidden="true" />
+      <Field Name="_model" Hidden="true" />
+      <Field Name="_modelFileName" Hidden="true" />
+      <Field Name="_pass" Hidden="true" />
+      <Field Name="_project" Hidden="true" />
+      <Field Name="_projectFolder" Hidden="true" />
+      <Field Name="_relativeGeneratedFileName" Hidden="true" />
+      <Field Name="_selectedModel" Hidden="true" />
+      <Field Name="_selectedStrategies" Hidden="true" />
+      <Field Name="_template" Hidden="true" />
+      <Method Name="GenerationContext" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Strategies.StrategyManifest">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Config\StrategyManifest.cs</FileName>
+      <HashCode>ABABEAAAAAAwAAQAAAAAAAAAACAQAAAEAIAAAAFAAAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_fileName" Hidden="true" />
+      <Method Name="CreateManifest" Hidden="true" />
+      <Method Name="DeserializeManifest" Hidden="true" />
+      <Method Name="GetXmlAttribute" Hidden="true" />
+      <Method Name="GetXmlElement" Hidden="true" />
+      <Field Name="PackageName" Hidden="true" />
+      <Field Name="StrategyConfiguration" Hidden="true" />
+      <Field Name="StrategyTypeName" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Strategies.GenericStrategy">
+    <Position X="10" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Impl\GenericStrategy.cs</FileName>
+      <HashCode>AEAACAAAgAAAAASAIACAAAIAAQAAgAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_layer" Hidden="true" />
+      <Field Name="_outputFileName" Hidden="true" />
+      <Field Name="_targetTypeNames" Hidden="true" />
+      <Field Name="_template" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="DSLFactory.Candle.SystemModel.Strategies.INamingStrategy">
+    <Position X="0.5" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Interfaces\INamingStrategy.cs</FileName>
+      <HashCode>AAAACCAAgACAAAAABAAAAoEIACAEAAAIAACAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DSLFactory.Candle.SystemModel.Strategies.IStrategyCodeGenerator">
+    <Position X="7" Y="8" Width="2" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Interfaces\IStrategyCodeGenerator.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DSLFactory.Candle.SystemModel.Strategies.IStrategyWizard">
+    <Position X="5.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Interfaces\IStrategyAddChildWizard.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DSLFactory.Candle.SystemModel.Strategies.IStrategyAddElementInterceptor">
+    <Position X="2.5" Y="8" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Interfaces\IStrategyAddElement.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAI=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DSLFactory.Candle.SystemModel.Strategies.IStrategyValidator">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Interfaces\IStrategyValidation.cs</FileName>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DSLFactory.Candle.SystemModel.Strategies.IStrategyProvidesProjectTemplates">
+    <Position X="2.5" Y="9.25" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Interfaces\IStrategyProvidesProjectTemplates.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DSLFactory.Candle.SystemModel.Strategies.IPackagedStrategy">
+    <Position X="0.5" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Interfaces\IPackagedStrategy.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DSLFactory.Candle.SystemModel.Strategies.IStrategy">
+    <Position X="4" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>Code\Strategies\Interfaces\IStrategy.cs</FileName>
+      <HashCode>QQAAEAAAAABgAAAAIIAAAAAAAgAAAAAAAAAAAAAAAAI=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+</ClassDiagram>

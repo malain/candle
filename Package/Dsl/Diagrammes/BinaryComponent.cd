@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="DSLFactory.Candle.SystemModel.CandleModel">
+    <Position X="0.5" Y="0.5" Width="6" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Model.cs</FileName>
+      <HashCode>YVgACCkCwAgQAB6AQQAADgIEBAQCACggmEHAQJEgAMA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BinaryComponent" />
+    </ShowAsAssociation>
+    <Members>
+      <Method Name="CanMerge" Hidden="true" />
+      <Method Name="ChooseMergeTarget" Hidden="true" />
+      <Method Name="CommitExternalAssemblyDelete" Hidden="true" />
+      <Method Name="CommitPendingsDelete" Hidden="true" />
+      <Property Name="Component" Hidden="true" />
+      <Field Name="ComponentTypeDomainPropertyId" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Field Name="DotNetFrameworkVersionDomainPropertyId" Hidden="true" />
+      <Field Name="dotNetFrameworkVersionPropertyStorage" Hidden="true" />
+      <Method Name="GetComponentTypeValue" Hidden="true" />
+      <Field Name="IsLibraryDomainPropertyId" Hidden="true" />
+      <Field Name="isLibraryPropertyStorage" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Method Name="CandleModel" Hidden="true" />
+      <Field Name="PathDomainPropertyId" Hidden="true" />
+      <Field Name="pathPropertyStorage" Hidden="true" />
+      <Field Name="pendingsElementsDeleted" Hidden="true" />
+      <Field Name="pendingsExternalAssemblyDeleted" Hidden="true" />
+      <Method Name="RegisterElementPendingDelete" Hidden="true" />
+      <Method Name="RegisterExternalAssemblyPendingDelete" Hidden="true" />
+      <Method Name="RetrieveReferences" Hidden="true" />
+      <Property Name="SoftwareComponent" Hidden="true" />
+      <Field Name="StrategyFileNameDomainPropertyId" Hidden="true" />
+      <Field Name="strategyFileNamePropertyStorage" Hidden="true" />
+      <Field Name="StrategyTemplateDomainPropertyId" Hidden="true" />
+      <Field Name="strategyTemplatePropertyStorage" Hidden="true" />
+      <Method Name="UnregisterExternalAssemblyPendingDelete" Hidden="true" />
+      <Field Name="UrlDomainPropertyId" Hidden="true" />
+      <Field Name="urlPropertyStorage" Hidden="true" />
+      <Method Name="ValidateMonikerAmbiguity" Hidden="true" />
+      <Field Name="VersionDomainPropertyId" Hidden="true" />
+      <Field Name="versionPropertyStorage" Hidden="true" />
+      <Field Name="VisibilityDomainPropertyId" Hidden="true" />
+      <Field Name="visibilityPropertyStorage" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.UrlPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.VisibilityPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.ComponentTypePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.VersionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.StrategyTemplatePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.DotNetFrameworkVersionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.IsLibraryPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.StrategyFileNamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.CandleModel.PathPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.BinaryComponent">
+    <Position X="7.75" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Code\Models\BinaryComponent.cs</FileName>
+      <HashCode>CQBAAAAAAAAAAAABAQAAAAAAAAQAAAgAgAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Assemblies" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Method Name="BinaryComponent" Hidden="true" />
+      <Method Name="CanMerge" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="FindDotNetAssemblyModelFromAssembly" Hidden="true" />
+      <Method Name="MergeDisconnect" Hidden="true" />
+      <Method Name="MergeRelate" Hidden="true" />
+      <Method Name="RetrieveReferences" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Assemblies" Type="DSLFactory.Candle.SystemModel.DotNetAssembly" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.125" Y="3.861" />
+        <Point X="10.125" Y="4.236" />
+        <Point X="9.062" Y="4.236" />
+        <Point X="9.062" Y="5.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.088" Y="0.227" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.Component">
+    <Position X="7.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Models\SoftwareComponent.cs</FileName>
+      <HashCode>AQAAAAABAAAAAAAAAAAAAAAAAAQAICAAgAgAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="Component" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Field Name="NamespaceDomainPropertyId" Hidden="true" />
+      <Field Name="namespacePropertyStorage" Hidden="true" />
+      <Method Name="RetrieveReferences" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.Component.NamespacePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.DotNetAssembly">
+    <Position X="7.75" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <FileName>Code\Models\DotnetAssembly.cs</FileName>
+      <HashCode>IVAAAQAAAEggAIAgCAAAAAAARAAGAAgAwkBCAAAAAQE=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="InternalAssemblyReferences" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="DotNetAssembly" Hidden="true" />
+      <Field Name="FullNameDomainPropertyId" Hidden="true" />
+      <Field Name="fullNamePropertyStorage" Hidden="true" />
+      <Method Name="GetAssemblyListToCreate" Hidden="true" />
+      <Method Name="InitFromAssembly" Hidden="true" />
+      <Field Name="InitialLocationDomainPropertyId" Hidden="true" />
+      <Field Name="initialLocationPropertyStorage" Hidden="true" />
+      <Method Name="InsertDependencies" Hidden="true" />
+      <Field Name="IsInGacDomainPropertyId" Hidden="true" />
+      <Field Name="isInGacPropertyStorage" Hidden="true" />
+      <Method Name="OnDeleting" Hidden="true" />
+      <Method Name="OnResurrected" Hidden="true" />
+      <Method Name="RetrieveReferences" Hidden="true" />
+      <Method Name="SynchronizeRepository" Hidden="true" />
+      <Field Name="VersionDomainPropertyId" Hidden="true" />
+      <Field Name="versionPropertyStorage" Hidden="true" />
+      <Field Name="VisibilityDomainPropertyId" Hidden="true" />
+      <Field Name="visibilityPropertyStorage" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.DotNetAssembly.FullNamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.DotNetAssembly.IsInGacPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.DotNetAssembly.VersionPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.DotNetAssembly.InitialLocationPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="DSLFactory.Candle.SystemModel.DotNetAssembly.VisibilityPropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <AssociationLine Name="InternalAssemblyReferences" Type="DSLFactory.Candle.SystemModel.DotNetAssembly" ManuallyRouted="true">
+      <Path>
+        <Point X="8.811" Y="7.401" />
+        <Point X="8.811" Y="7.995" />
+        <Point X="9.71" Y="7.995" />
+        <Point X="9.71" Y="7.401" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.807" Y="0.133" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <Lollipop Position="1.7" />
+  </Class>
+  <Class Name="DSLFactory.Candle.SystemModel.AbstractLayer">
+    <Position X="0.5" Y="5.25" Width="5" />
+    <TypeIdentifier>
+      <FileName>Code\Models\Layer.cs</FileName>
+      <HashCode>AQAAAAJAAADEAAAAAAAAEAFCABAAACAAIAABAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_assemblyName" Hidden="true" />
+      <Method Name="AbstractLayer" Hidden="true" />
+      <Field Name="AssemblyNameDomainPropertyId" Hidden="true" />
+      <Field Name="DomainClassId" Hidden="true" />
+      <Method Name="GetAssemblyNameValue" Hidden="true" />
+      <Method Name="RetrieveArtifacts" Hidden="true" />
+      <Method Name="RetrieveExternalReferences" Hidden="true" />
+      <Method Name="RetrieveReferencesForExternalComponent" Hidden="true" />
+      <Method Name="SetAssemblyNameValue" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="DSLFactory.Candle.SystemModel.AbstractLayer.AssemblyNamePropertyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GeneratedCode\DomainClasses.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+</ClassDiagram>

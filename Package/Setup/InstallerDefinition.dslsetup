@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+This file is a manifest that defines how a domain-specific language is installed. The text template files 
+(.tt) in this project use the information in this file to generate WiX files (.wxs). When the project is 
+built, these WiX files are compiled into an MSI package. To deploy this package, copy all of the files 
+from the project output directory to the target computer, and run setup.exe.
+
+Some values in this file are copied from the domain-specific language definition (.dsl).
+If the .dsl file could not be found, you will need to edit this manifest to correct values for some attributes.
+For more specific information, see the Error List window.
+-->
+<installerDefinition xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/InstallerCandle" 
+  productUrl="www.dslfactory.org"
+  defaultDirectoryName="Candle"
+  productVersion="0.9.0"
+  requiresCSharp="true"
+  requiresVisualBasic="false"
+  productCode="5ee55005-2de6-43bf-9d4a-aee6e2ee160f"
+  upgradeCode="18019d20-0d7e-4a36-9e4d-21a90f1a68eb"
+  customFragmentIds="VSTemplatesFragment"
+  localeId="1033">
+  <!-- Penser à changer le n0 de version pour le regasm dans customfile.wxs -->
+	<dslPackage name="SystemModel" project="DslPackage" assemblyPath="DSLFactory.Candle.SystemModel.DslPackage.dll" registryRoot="Software\Microsoft\VisualStudio\8.0">
+		<fileExtensions>
+			<fileExtension name="cml" extension="cml" descriptionKey="FileDescription" hasIcon="true" iconId="0"/>
+		</fileExtensions>
+		<supportingAssemblies>
+			<supportingAssembly name="Dsl" project="Dsl" assemblyPath="DSLFactory.Candle.SystemModel.Dsl.dll"/>
+      <supportingAssembly name="Utilities" project="DSLUtilities" assemblyPath ="DSLFactory.Candle.SystemModel.ServerExplorer.Utils.dll"/>
+		</supportingAssemblies>
+	</dslPackage>
+	<licenseAgreement filePath="Files\EULA.rtf" isEmbedded="true" />
+	<supportingFiles>
+		<supportingFile name="Readme" filePath="Files\Readme.htm" installShortcut="true" shortcutIconPath="Resources\ReadmeShortcut.ico" openAfterInstall="true" isEmbedded="true"/>
+	</supportingFiles>
+	<vsItemTemplates>
+		<vsItemTemplate localeId="1033" targetDirectories="CSharp" project="DslPackage" templatePath="CSharp\1033\CandleModel.zip"/>
+	</vsItemTemplates>
+	<dslSchemas>
+		<dslSchema project="Dsl" filePath="..\..\GeneratedCode\CandleModelSchema.xsd"/>
+	</dslSchemas>
+</installerDefinition>

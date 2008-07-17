@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSLUtilities", "DslUtilities\DSLUtilities.csproj", "{4F1110F1-CC9C-4C8F-BCD2-81079BA9F199}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dsl", "Dsl\Dsl.csproj", "{16CBE3CC-D4A2-47AF-BD7A-76E9DCE6358D}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DslPackage", "DslPackage\DslPackage.csproj", "{1FECDA8A-F504-4983-AE1C-A63000346663}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setup", "Setup\Setup.csproj", "{F843F3A5-EAC4-49D3-9747-CE32D42C9E79}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs03.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Dsl\\Dsl.csproj
+		SccProjectName1 = Dsl
+		SccLocalPath1 = Dsl
+		SccProjectUniqueName2 = DslPackage\\DslPackage.csproj
+		SccProjectName2 = DslPackage
+		SccLocalPath2 = DslPackage
+		SccProjectUniqueName3 = DslUtilities\\DSLUtilities.csproj
+		SccProjectName3 = DslUtilities
+		SccLocalPath3 = DslUtilities
+		SccProjectUniqueName4 = Setup\\Setup.csproj
+		SccProjectName4 = Setup
+		SccLocalPath4 = Setup
+	EndGlobalSection
+	GlobalSection(TextTemplating) = postSolution
+		TextTemplating = 1
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F1110F1-CC9C-4C8F-BCD2-81079BA9F199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F1110F1-CC9C-4C8F-BCD2-81079BA9F199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F1110F1-CC9C-4C8F-BCD2-81079BA9F199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F1110F1-CC9C-4C8F-BCD2-81079BA9F199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16CBE3CC-D4A2-47AF-BD7A-76E9DCE6358D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16CBE3CC-D4A2-47AF-BD7A-76E9DCE6358D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16CBE3CC-D4A2-47AF-BD7A-76E9DCE6358D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16CBE3CC-D4A2-47AF-BD7A-76E9DCE6358D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FECDA8A-F504-4983-AE1C-A63000346663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FECDA8A-F504-4983-AE1C-A63000346663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FECDA8A-F504-4983-AE1C-A63000346663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FECDA8A-F504-4983-AE1C-A63000346663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F843F3A5-EAC4-49D3-9747-CE32D42C9E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F843F3A5-EAC4-49D3-9747-CE32D42C9E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F843F3A5-EAC4-49D3-9747-CE32D42C9E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F843F3A5-EAC4-49D3-9747-CE32D42C9E79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

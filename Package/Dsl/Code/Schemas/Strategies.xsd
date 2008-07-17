@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:element name="configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="language">
+          <xs:complexType>
+            <xs:attribute name="defaultProjectTemplate" type="xs:string" use="required" />
+            <xs:attribute name="defaultWebProjectTemplate" type="xs:string" use="required" />
+            <xs:attribute name="defaultExtension" type="xs:string" use="required" />
+            <xs:attribute name="defaultName" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Packages">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="StrategyPackage">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="strategyTypes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="add">
+                <xs:complexType>
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="package" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="strategies">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="StrategyBase">
+                <xs:complexType>
+                  <xs:attribute name="package" type="xs:string" use="optional" />
+                  <xs:attribute name="modelOwner" type="xs:string" use="required" />
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="id" type="xs:string" use="required" />
+                  <xs:attribute name="group" type="xs:string" use="required" />
+                  <xs:attribute name="path" type="xs:string" use="required" />
+                  <xs:attribute name="url" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NamingStrategy">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DefaultGeneratedCodeFilePattern" type="xs:string" />
+              <xs:element name="LayerNamingRules">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="LayerNamingRule">
+                      <xs:complexType>
+                        <xs:attribute name="type" type="xs:string" use="required" />
+                        <xs:attribute name="defaultName" type="xs:string" use="required" />
+                        <xs:attribute name="formatString" type="xs:string" use="required" />
+                        <xs:attribute name="assemblyFormatString" type="xs:string" use="required" />
+                        <xs:attribute name="projectFolderFormatString" type="xs:string" use="required" />
+                        <xs:attribute name="elementFormatString" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DefaultProjectFolderFormat" type="xs:string" />
+              <xs:element name="ColumnNameFormat" type="xs:string" />
+              <xs:element name="PrivateVariableNameFormat" type="xs:string" />
+              <xs:element name="DefaultNamespace" />
+            </xs:sequence>
+            <xs:attribute name="collectionAsArray" type="xs:boolean" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

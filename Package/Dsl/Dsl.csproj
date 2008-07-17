@@ -1,0 +1,1227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{16CBE3CC-D4A2-47AF-BD7A-76E9DCE6358D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DSLFactory.Candle.SystemModel</RootNamespace>
+    <AssemblyName>DSLFactory.Candle.SystemModel.Dsl</AssemblyName>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <SignAssembly>true</SignAssembly>
+    <GacTargetOutput>true</GacTargetOutput>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\DSLFactory.Candle.SystemModel.Dsl.XML</DocumentationFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\DSLTools\v2.0\Microsoft.DSLTools.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.EnterpriseTools.TypeSystem, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G:\GAC_MSIL\Microsoft.VisualStudio.EnterpriseTools.TypeSystem\8.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.EnterpriseTools.TypeSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk, Version=8.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams, Version=8.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams.GraphObject, Version=8.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell, Version=8.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating, Version=8.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.VSHost, Version=8.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Zip, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Microsoft.VisualStudio.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="VsWebSite.Interop, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GeneratedCode\SerializationHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SerializationHelper.cs</LastGenOutput>
+    </None>
+    <Compile Include="Code\Commands\ArrangeShapes\ArrangeShapes.cs" />
+    <Compile Include="Code\Commands\Artifacts\ManageArtifactsCommand.cs" />
+    <Compile Include="Code\Commands\AssociationAsAttributeCommand.cs" />
+    <Compile Include="Code\Commands\AttributeAsAssociationCommand.cs" />
+    <Compile Include="Code\Commands\BrowseDocumentationCommand.cs" />
+    <Compile Include="Code\Commands\UpdateDotnetAssembly.cs" />
+    <Compile Include="Code\Commands\CopyCommand.cs" />
+    <Compile Include="Code\Commands\ExportDiagramAsBitmapCommand.cs" />
+    <Compile Include="Code\Commands\GenerateAllCommand.cs" />
+    <Compile Include="Code\Commands\GetLastVersionCommand.cs" />
+    <Compile Include="Code\Forms\VirtualTreeGrid\ModelKind.cs" />
+    <Compile Include="Code\Forms\VirtualTreeGrid\VirtualTreeGridCategory.cs" />
+    <Compile Include="Code\Interfaces\ICommand.cs" />
+    <Compile Include="Code\Commands\ManageConfigurationCommand.cs" />
+    <Compile Include="Code\Commands\ModelAffectationCommand.cs" />
+    <Compile Include="Code\Commands\PropagatesOperationsCommand.cs" />
+    <Compile Include="Code\Commands\PublishAsTemplate\PublishAsTemplateCommand.cs" />
+    <Compile Include="Code\Commands\PublishModelCommand.cs" />
+    <Compile Include="Code\Commands\Reverse\CLRImport\CustomAttributeReflector.cs" />
+    <Compile Include="Code\Commands\Reverse\CLRImport\ImportAssemblyCommand.cs" />
+    <Compile Include="Code\Commands\Reverse\CLRImport\ReverseInterfaces.cs" />
+    <Compile Include="Code\Commands\Reverse\CLRImport\ReverseModels.cs" />
+    <Compile Include="Code\Commands\Reverse\FCM\ImportEntityHelper.cs" />
+    <Compile Include="Code\Commands\Reverse\FCM\ImportInterfaceHelper.cs" />
+    <Compile Include="Code\Commands\Reverse\ImportInterfacesCommand.cs" />
+    <Compile Include="Code\Commands\Reverse\ImportModelCommand.cs" />
+    <Compile Include="Code\Commands\Reverse\Project\ImportProjectHelper.cs" />
+    <Compile Include="Code\Commands\Reverse\WSDLImporter.cs" />
+    <Compile Include="Code\Commands\Reverse\XmiImportCommand.cs" />
+    <Compile Include="Code\Commands\Reverse\XmiImporter.cs" />
+    <Compile Include="Code\Commands\ShowAssociationPropertiesCommand.cs" />
+    <Compile Include="Code\Commands\ShowDependencies\ShowDependenciesCommand.cs" />
+    <Compile Include="Code\Commands\ShowModelCommand.cs" />
+    <Compile Include="Code\Commands\ShowModelsLayerCommand.cs" />
+    <Compile Include="Code\Commands\ShowPropertiesCommand.cs" />
+    <Compile Include="Code\Commands\ShowStrategiesCommand.cs" />
+    <Compile Include="Code\ConnectionBuilders\GeneralizationBuilder.cs" />
+    <Compile Include="Code\Forms\Commands\ConfigurationEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\ConfigurationEditorDialog.Designer.cs">
+      <DependentUpon>ConfigurationEditorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\CandleGridViewMultilineTextBoxColumn.cs" />
+    <Compile Include="Code\Forms\Commands\SelectModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\SelectModelForm.Designer.cs">
+      <DependentUpon>SelectModelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\RelationShips\PropagatesOperationsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\RelationShips\PropagatesOperationsDialog.Designer.cs">
+      <DependentUpon>PropagatesOperationsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Interfaces\RepositoryServerItemStatus.cs" />
+    <Compile Include="Code\Models\AbstractLayer.cs" />
+    <Compile Include="Code\Models\ExternalNamespaceProvider.cs" />
+    <Compile Include="Code\Models\ExternalPublicPort.cs" />
+    <Compile Include="Code\Models\ExternalServiceContract.cs" />
+    <Compile Include="Code\Models\SoftwareLayer.cs" />
+    <Compile Include="Code\Models\TypeDefinition.cs" />
+    <Compile Include="Code\Models\Validations\Association.cs" />
+    <Compile Include="Code\Models\Validations\Artifact.cs" />
+    <Compile Include="Code\Repository\Merger\CandleModelMerger.cs" />
+    <Compile Include="Code\Repository\Metadata\MetadataChangedEventArg.cs" />
+    <Compile Include="Code\Repository\Metadata\MetadataCollection.cs" />
+    <Compile Include="Code\Repository\Metadata\PathKind.cs" />
+    <Compile Include="Code\Repository\Metadata\PublishEventType.cs" />
+    <Compile Include="Code\Repository\Metadata\RepositoryLocation.cs" />
+    <Compile Include="Code\Repository\References\ConfigurationMode.cs" />
+    <Compile Include="Code\Repository\References\ConfigurationVisitor.cs" />
+    <Compile Include="Code\Services\CandleNotifier.cs" />
+    <Compile Include="Code\Services\Interfaces\ICandleNotifier.cs" />
+    <Compile Include="Code\Services\Interfaces\IDialogService.cs" />
+    <Compile Include="Code\Services\Interfaces\IImportInterfaceHelper.cs" />
+    <Compile Include="Code\Services\Interfaces\IImportEntityHelper.cs" />
+    <Compile Include="Code\Config\VisualStudio\IDERepositorySettingsStorage.cs" />
+    <Compile Include="Code\Config\Web\WebRepositorySettingsStorage.cs" />
+    <Compile Include="Code\Forms\CandleLogWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\CandleLogWindow.Designer.cs">
+      <DependentUpon>CandleLogWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\PublishAsTemplateWizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\PublishAsTemplateWizardPage.Designer.cs">
+      <DependentUpon>PublishAsTemplateWizardPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\ReverseModelsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\ReverseModelsForm.Designer.cs">
+      <DependentUpon>ReverseModelsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\ConnectionBuilders\ReferenceBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Repository\RepositoryPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Repository\RepositoryPropertiesForm.Designer.cs">
+      <DependentUpon>RepositoryPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Strategies\LanguageConfigurationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Strategies\LanguageConfigurationControl.Designer.cs">
+      <DependentUpon>LanguageConfigurationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\ProjectWizard\ModelWizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\ProjectWizard\StrategyWizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\ProjectWizard\StrategyWizardPage.Designer.cs">
+      <DependentUpon>StrategyWizardPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Models\InterfaceLayer.cs" />
+    <Compile Include="Code\Models\Interfaces\IProvidesTypeFullNameResolver.cs" />
+    <Compile Include="Code\Models\Interfaces\IArgument.cs" />
+    <Compile Include="Code\Models\Interfaces\ISupportDetailView.cs" />
+    <Compile Include="Code\Models\Interfaces\IHasChildren.cs" />
+    <Compile Include="Code\Models\Interfaces\IShowCodeProperties.cs" />
+    <Compile Include="Code\Models\Interfaces\ISortedLayer.cs" />
+    <Compile Include="Code\Models\Interfaces\ITypeName.cs" />
+    <Compile Include="Code\Models\RelationShips\ClassUsesOperations.cs" />
+    <Compile Include="Code\Models\ServiceContract.cs" />
+    <Compile Include="Code\Models\StandardNamespaceResolver.cs" />
+    <Compile Include="Code\Models\TypeWithOperations.cs" />
+    <Compile Include="Code\Models\Validations\Model.cs" />
+    <Compile Include="Code\Repository\Domains\DomainItem.cs" />
+    <Compile Include="Code\Repository\Domains\DomainItemCollection.cs" />
+    <Compile Include="Code\Repository\Domains\DomainManager.cs" />
+    <Compile Include="Code\Forms\Repository\PublishModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Repository\PublishModelForm.Designer.cs">
+      <DependentUpon>PublishModelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Repository\ModelSynchronizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Repository\ModelSynchronizationForm.Designer.cs">
+      <DependentUpon>ModelSynchronizationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Repository\Metadata\ComponentMetadataMap.cs" />
+    <Compile Include="Code\Repository\Metadata\ComponentModelMetadata.cs" />
+    <Compile Include="Code\Interfaces\IModelsMetadata.cs" />
+    <Compile Include="Code\Repository\Metadata\ModelsRepositoryService.cs" />
+    <Compile Include="Code\Repository\References\CheckReferenceVisitor.cs" />
+    <Compile Include="Code\Repository\References\DependencyGraphVisitor.cs" />
+    <Compile Include="Code\Interfaces\IReferenceVisitor.cs" />
+    <Compile Include="Code\Repository\References\ReferenceItem.cs" />
+    <Compile Include="Code\Repository\References\ReferencesHelper.cs" />
+    <Compile Include="Code\Repository\References\ReferencesWalker.cs" />
+    <Compile Include="Code\Repository\References\ReferenceVisitor.cs" />
+    <Compile Include="Code\Rules\Change\CustomizableElementChangeRule.cs" />
+    <Compile Include="Code\Rules\Delete\CustomizableElementDeleteRule.cs" />
+    <Compile Include="Code\Rules\Delete\LayerDeleteRule.cs" />
+    <Compile Include="Code\Rules\Delete\LayerPackageDeleteRule.cs" />
+    <Compile Include="Code\Rules\Delete\ParentShapeContainsNestedChildShapesDeleteRule.cs" />
+    <Compile Include="Code\Rules\Insert\ExternalServiceReferenceAddRule.cs" />
+    <Compile Include="Code\Rules\Insert\ParentShapeContainsNestedChildShapesInsertRule.cs" />
+    <Compile Include="Code\Rules\Insert\SoftwareComponentInsertRule.cs" />
+    <Compile Include="Code\Forms\Rules\AbstractTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Rules\AbstractTemplate.Designer.cs">
+      <DependentUpon>AbstractTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Rules\StrategyWizard\DAOSelectorDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Rules\StrategyWizard\DAOSelectorDlg.Designer.cs">
+      <DependentUpon>DAOSelectorDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Config\DomainPathSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Config\DomainPathSelector.Designer.cs">
+      <DependentUpon>DomainPathSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Config\DomainPathTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\Fwk\CandleWizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\Fwk\CandleWizardForm.Designer.cs">
+      <DependentUpon>CandleWizardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\Fwk\CandleWizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\Fwk\CandleWizardPage.Designer.cs">
+      <DependentUpon>CandleWizardPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\Fwk\Commun.cs">
+    </Compile>
+    <Compile Include="Code\Services\Interfaces\ILogger.cs" />
+    <Compile Include="Code\Interfaces\ISupportArrangeShapes.cs" />
+    <Compile Include="Code\Services\VisualStudio\DialogService.cs" />
+    <Compile Include="Code\Shapes\BoundsRules\ComponentShapeBoundsRule.cs" />
+    <Compile Include="Code\Shapes\Component\ExternalPublicPortShape.cs" />
+    <Compile Include="Code\Shapes\Component\ExternalServiceContractShape.cs" />
+    <Compile Include="Code\Shapes\Component\SoftwareComponent\Layers\PresentationLayerShape.cs" />
+    <Compile Include="Code\Shapes\Connectors\ClassUsesOperation.cs" />
+    <Compile Include="Code\Shapes\Connectors\ImplementationLink.cs" />
+    <Compile Include="Code\Shapes\Component\SoftwareComponent\InterfaceLayerShape.cs" />
+    <Compile Include="Code\Shapes\ClassImplementationShape.cs" />
+    <Compile Include="Code\Shapes\ServiceContractShape.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CandleCodeClass.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CandleCodeElement.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CandleCodeEnum.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CandleCodeFunction.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CandleCodeInterface.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CandleCodeNamespace.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CandleCodeParameter.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CandleCodeStruct.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CandleCodeVariable.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\ICodeModelVisitorFilter.cs" />
+    <Compile Include="Code\Strategies\Config\InternalManifest.cs" />
+    <Compile Include="Code\Strategies\Config\InternalPackage.cs" />
+    <Compile Include="Code\Strategies\Config\ManifestCollection.cs" />
+    <Compile Include="Code\Strategies\Config\StrategyTypeReference.cs" />
+    <Compile Include="Code\Strategies\CustomProperties\DependencyPropertyRegistry.cs" />
+    <Compile Include="Code\Strategies\CustomProperties\DependencyPropertySerializer.cs" />
+    <Compile Include="Code\Strategies\CustomProperties\DependencyPropertyValue.cs" />
+    <Compile Include="Code\Strategies\CustomProperties\DependencyPropertyValueConverter.cs" />
+    <Compile Include="Code\Strategies\CustomProperties\Helper\CollectionElementPropertyDescriptor.cs" />
+    <Compile Include="Code\Strategies\CustomProperties\IDependencyProperty.cs" />
+    <Compile Include="Code\Strategies\Impl\NamingStrategy\LayerNamingRule.cs" />
+    <Compile Include="Code\Strategies\Models\SoftwareLayer.cs" />
+    <Compile Include="Code\TypeEditors\StringCollectionEditor.cs" />
+    <Compile Include="Code\Types\ComponentSig.cs" />
+    <Compile Include="Code\Types\VersionTypeConverter.cs" />
+    <Compile Include="Code\Utilitaires\CreateNewModelHelper.cs" />
+    <Compile Include="Code\Utilitaires\DotNetFrameworkHelper.cs" />
+    <Compile Include="Code\Services\Interfaces\IAssemblySelectorDialog.cs" />
+    <Compile Include="Code\Utilitaires\SafeStreamWriter.cs" />
+    <Compile Include="Code\Utilitaires\SolutionExplorerHelper.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\MetaData\DbContainer.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\MetaData\DbParameter.cs" />
+    <Compile Include="Code\Utilitaires\Walkers\CandleCodeVisitor.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CandleCodeProperty.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\CodeInjectionContext.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\AOP\ICodeVisitor.cs" />
+    <Compile Include="Code\Services\VisualStudio\Logger.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\CustomTool\ConfigurationFileGenerator.cs" />
+    <Compile Include="Code\Strategies\CustomProperties\DependencyProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Code\Strategies\CustomProperties\Helper\CollectionTypeConverter.cs" />
+    <Compile Include="Code\Strategies\CustomProperties\Helper\EditableCollection.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IStrategyConfigGenerator.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IStrategyPublisher.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IAOPStrategy.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\CodeGenerationUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Code\Strategies\CodeGeneration\GenerationPass.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\Generator.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\Engine\StrategyTextTransformation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Code\Strategies\Config\StrategyPackage.cs" />
+    <Compile Include="Code\Forms\Strategies\NamingStrategyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Strategies\NamingStrategyControl.Designer.cs">
+      <DependentUpon>NamingStrategyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Strategies\StrategiesListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Strategies\StrategiesListControl.Designer.cs">
+      <DependentUpon>StrategiesListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Strategies\StrategyRemovedEventArgs.cs" />
+    <Compile Include="Code\Strategies\Impl\ConfigurationFileStrategy.cs" />
+    <Compile Include="Code\Strategies\Impl\StrategyAddProjectFromTemplate.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IPackagedStrategy.cs" />
+    <Compile Include="Code\Strategies\Mapper\CandleExtender.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\T4Engine\CandleTemplateHost.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\T4Engine\ContextProcessor.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\T4Engine\PropertyProcessor.cs" />
+    <Compile Include="Code\Forms\Strategies\PromptBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Strategies\PromptBox.Designer.cs">
+      <DependentUpon>PromptBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\SelectAssemblyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\SelectAssemblyForm.Designer.cs">
+      <DependentUpon>SelectAssemblyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Config\VisualStudio\OptionsServersPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Config\OptionsServersPageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Config\OptionsServersPageControl.Designer.cs">
+      <DependentUpon>OptionsServersPageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Config\OptionsInitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Config\OptionsInitForm.Designer.cs">
+      <DependentUpon>OptionsInitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\ConnectionBuilders\LayerPackageContainsLayersBuilder.cs" />
+    <Compile Include="Code\Diagrams\CanceledByUser.cs" />
+    <Compile Include="Code\Diagrams\Serializer\UILayerDiagramSerializer.cs" />
+    <Compile Include="Code\Diagrams\Serializer\ModelsLayerDiagramSerializer.cs" />
+    <Compile Include="Code\Diagrams\UIWorkflowLayerDiagram.cs" />
+    <Compile Include="Code\Models\Artifact.cs" />
+    <Compile Include="Code\Forms\Wizards\NamespacesSelectorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\NamespacesSelectorDialog.Designer.cs">
+      <DependentUpon>NamespacesSelectorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\TypeSelectorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Wizards\TypeSelectorDialog.Designer.cs">
+      <DependentUpon>TypeSelectorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Models\Entities\TypeNormalizer.cs" />
+    <Compile Include="Code\Models\LayerPackage.cs" />
+    <Compile Include="Code\Models\ClassImplementation.cs" />
+    <Compile Include="Code\Models\NameProvider\SpecificNameProvider.cs" />
+    <Compile Include="Code\Models\RelationShips\Association.cs" />
+    <Compile Include="Code\Models\RelationShips\Action.cs" />
+    <Compile Include="Code\Models\RelationShips\ExternalServiceReference.cs" />
+    <Compile Include="Code\Models\RelationShips\Implementation.cs" />
+    <Compile Include="Code\Models\Argument.cs" />
+    <Compile Include="Code\Interfaces\IHasReferences.cs" />
+    <Compile Include="Code\Repository\References\ReferenceContext.cs" />
+    <Compile Include="Code\Repository\References\ReferenceScope.cs" />
+    <Compile Include="Code\Strategies\Config\StrategyManifest.cs" />
+    <Compile Include="Code\Rules\Change\LayerChangeRule.cs" />
+    <Compile Include="Code\Rules\Insert\AssociationInsertRule.cs" />
+    <Compile Include="Code\Rules\Insert\StrategyImplementorInsertRule.cs" />
+    <Compile Include="Code\Forms\Rules\AssociationPropertiesSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Rules\AssociationPropertiesSelectorForm.Designer.cs">
+      <DependentUpon>AssociationPropertiesSelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Strategies\Config\LanguageConfiguration.cs" />
+    <Compile Include="Code\Forms\Strategies\RunningStrategiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Strategies\RunningStrategiesForm.Designer.cs">
+      <DependentUpon>RunningStrategiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Strategies\Interfaces\IStrategyProjectGenerator.cs" />
+    <Compile Include="Code\Strategies\Impl\StrategyProjectGenerator.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IStrategyProvidesProjectTemplates.cs" />
+    <Compile Include="Code\Strategies\Mapper\Mapper.cs" />
+    <Compile Include="Code\Strategies\Mapper\SelectFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Strategies\Mapper\SelectFile.Designer.cs">
+      <DependentUpon>SelectFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Strategies\Models\ClassImplementation.cs" />
+    <Compile Include="Code\Strategies\TemplateProperties.cs" />
+    <Compile Include="Code\TypeEditors\VSTemplateTypeEditor.cs" />
+    <Compile Include="Code\TypeEditors\LayerNameEditor.cs" />
+    <Compile Include="Code\Forms\TypeEditors\OperationSelectorDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\TypeEditors\OperationSelectorDlg.Designer.cs">
+      <DependentUpon>OperationSelectorDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\TypeEditors\PathEditor.cs" />
+    <Compile Include="Code\Types\ComponentType.cs" />
+    <Compile Include="Code\Types\DomainVisibility.cs" />
+    <Compile Include="Code\Utilitaires\CacheService.cs" />
+    <Compile Include="Code\Services\Interfaces\ICacheProvider.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\MetaData\StoredProcedure.cs" />
+    <Compile Include="Code\Utilitaires\TransactionHelper.cs" />
+    <Compile Include="Code\Services\Interfaces\IIDEHelper.cs" />
+    <Compile Include="Code\Services\Interfaces\IRepositorySettingsStorage.cs" />
+    <Compile Include="Code\Services\Interfaces\IShellHelper.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\Discover\OleDbSchemaDiscover.cs" />
+    <Compile Include="Code\Services\Interfaces\IDatabaseImporter.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\MetaData\Column.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\DatabaseImporter.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\Discover\GenericSchemaDiscover.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\MetaData\DBView.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\MetaData\Index.cs" />
+    <Compile Include="Code\Interfaces\ISchemaDiscover.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\Discover\OracleSchemaDiscover.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\MetaData\RelationShip.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\Discover\SQLServerSchemaDiscover.cs" />
+    <Compile Include="Code\Utilitaires\SchemaDiscover\MetaData\Table.cs" />
+    <Compile Include="Code\Shapes\Connectors\AssociationLink.cs" />
+    <Compile Include="Code\Shapes\LayerHelper.cs" />
+    <Compile Include="Code\Forms\TypeEditors\TargetModelSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\TypeEditors\TargetModelSelector.Designer.cs">
+      <DependentUpon>TargetModelSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\TypeEditors\TargetModelEditor.cs" />
+    <Compile Include="Code\TypeEditors\GuidTypeEditor.cs" />
+    <Compile Include="Code\Forms\Strategies\SelectStrategyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Strategies\SelectStrategyDialog.Designer.cs">
+      <DependentUpon>SelectStrategyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Models\UIWorkflowLayerModel.cs" />
+    <Compile Include="Code\Models\BinaryComponent.cs" />
+    <Compile Include="Code\Models\EnumValue.cs" />
+    <Compile Include="Code\Models\EnumModel.cs" />
+    <Compile Include="Code\Models\EntityModel.cs" />
+    <Compile Include="Code\Models\ExternalComponent.cs" />
+    <Compile Include="Code\Models\DotnetAssembly.cs" />
+    <Compile Include="Code\TypeEditors\VersionTypeEditor.cs" />
+    <Compile Include="Code\Models\UIViewModel.cs" />
+    <Compile Include="Code\Models\ScenarioModel.cs" />
+    <Compile Include="Code\Models\NamedElement.cs" />
+    <Compile Include="Code\TypeEditors\TypePropertyDescriptor.cs" />
+    <Compile Include="Code\Models\Validations\LayerModel.cs" />
+    <Compile Include="Code\Models\Validations\CandleElement.cs" />
+    <Compile Include="Code\Models\Validations\ModelsLayerModel.cs" />
+    <Compile Include="Code\Models\Validations\PackageModel.cs" />
+    <Compile Include="Code\Models\Validations\NamedElement.cs" />
+    <Compile Include="Code\Models\Validations\SoftwareComponent.cs" />
+    <Compile Include="Code\Models\Validations\LayerServicePort.cs" />
+    <Compile Include="Code\Forms\Repository\RepositoryTreeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Repository\RepositoryTreeControl.Designer.cs">
+      <DependentUpon>RepositoryTreeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Repository\Providers\WebServiceStrategiesReference.cs" />
+    <Compile Include="Code\Repository\RepositoryFileInfo.cs" />
+    <Compile Include="Code\Interfaces\RepositoryCategory.cs" />
+    <Compile Include="Code\Repository\RepositoryFile.cs" />
+    <Compile Include="Code\Repository\RepositoryZipFile.cs" />
+    <Compile Include="Code\Rules\Change\XmlNameChangeRule.cs" />
+    <Compile Include="Code\Rules\Insert\LayerPackageInsertRule.cs" />
+    <Compile Include="Code\Rules\Insert\InternalServiceReferenceInsertRule.cs" />
+    <Compile Include="Code\Rules\Change\EnumValueChangeRule.cs" />
+    <Compile Include="Code\Rules\Change\LayerNameChangeRule.cs" />
+    <Compile Include="Code\Rules\Change\SoftwareComponentChangeRule.cs" />
+    <Compile Include="Code\Rules\Insert\ExternalAssemblyShapeInsertRule.cs" />
+    <Compile Include="Code\Rules\Change\LayerServicePortChangeRule.cs" />
+    <Compile Include="Code\Forms\Rules\ReferencedAssembliesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Rules\ReferencedAssembliesForm.Designer.cs">
+      <DependentUpon>ReferencedAssembliesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Rules\StrategyWizard\NewServiceImplementation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Rules\StrategyWizard\NewServiceImplementation.Designer.cs">
+      <DependentUpon>NewServiceImplementation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Shapes\Component\SoftwareComponent\Layers\BusinessLayerShape.cs" />
+    <Compile Include="Code\Shapes\Component\BinaryComponent\BinaryComponentShape.cs" />
+    <Compile Include="Code\Shapes\Component\SoftwareComponent\LayerPackageShape.cs" />
+    <Compile Include="Code\Shapes\Component\BinaryComponent\DotnetAssemblyShape.cs" />
+    <Compile Include="Code\Shapes\ScenarioShape.cs" />
+    <Compile Include="Code\Shapes\Component\SoftwareComponent\Layers\DALLayerShape.cs" />
+    <Compile Include="Code\Shapes\Component\SoftwareComponent\Layers\UILayerShape.cs" />
+    <Compile Include="Code\Shapes\EnumShape.cs" />
+    <Compile Include="Code\TypeEditors\AssemblyReferenceEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Code\TypeEditors\GenericCollectionEditor.cs" />
+    <Compile Include="Code\Forms\Strategies\DropDownEditorListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\ArtifactEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\ArtifactEditorDialog.Designer.cs">
+      <DependentUpon>ArtifactEditorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\TypeEditors\TemplateNameEditor.cs" />
+    <Compile Include="Code\Strategies\Impl\GenericStrategy.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IStrategyCodeGenerator.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IStrategyValidation.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IStrategyAddElement.cs" />
+    <Compile Include="Code\Strategies\Models\Scenario.cs" />
+    <Compile Include="Code\Strategies\Models\UIWorkflowLayer.cs" />
+    <Compile Include="Code\Strategies\Models\Package.cs" />
+    <Compile Include="Code\Strategies\Models\ModelsLayer.cs" />
+    <Compile Include="Code\Strategies\CodeGeneration\GenerationContext.cs" />
+    <Compile Include="Code\Strategies\Models\LayerModel.cs" />
+    <Compile Include="Code\Strategies\Models\SoftwareComponent.cs" />
+    <Compile Include="Code\Types\VersionInfo.cs" />
+    <Compile Include="Code\Services\VisualStudio\AssemblySelectorDialog.cs" />
+    <Compile Include="Code\Utilitaires\FileCodeModelHelper.cs" />
+    <Compile Include="Code\Utilitaires\Walkers\CodeModelWalker.cs" />
+    <Compile Include="Code\Interfaces\IVSHierarchyVisitor.cs" />
+    <Compile Include="Code\Interfaces\ILayerReferenceVisitor.cs" />
+    <Compile Include="Code\Utilitaires\Walkers\LayerReferenceWalker.cs" />
+    <Compile Include="Code\Utilitaires\Walkers\HierarchyVisitor.cs" />
+    <Compile Include="Code\Forms\SchemaDiscover\EntityNameConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\SchemaDiscover\EntityNameConfirmation.Designer.cs">
+      <DependentUpon>EntityNameConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Utilitaires\ServerExplorerHelper.cs" />
+    <Compile Include="Code\Services\ServiceLocator.cs" />
+    <Compile Include="Code\Utilitaires\Walkers\ModelVisitor.cs" />
+    <Compile Include="Code\Utilitaires\Walkers\TreeViewVisitor.cs" />
+    <Compile Include="Code\Utilitaires\Utils.cs" />
+    <Compile Include="Code\Utilitaires\ShapeHelper.cs" />
+    <Compile Include="Code\Utilitaires\IDEHelper.cs" />
+    <Compile Include="Code\Utilitaires\ShellHelper.cs" />
+    <Compile Include="Code\Forms\Commands\ShowDependenciesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\ShowDependenciesForm.Designer.cs">
+      <DependentUpon>ShowDependenciesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\ImportProjectWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Commands\ImportProjectWizard.Designer.cs">
+      <DependentUpon>ImportProjectWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Config\VisualStudio\OptionsPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Config\OptionsPageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Config\OptionsPageControl.Designer.cs">
+      <DependentUpon>OptionsPageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Config\CandleSettings.cs" />
+    <Compile Include="Code\Constants.cs" />
+    <Compile Include="Code\Diagrams\ToolboxHelper.cs" />
+    <Compile Include="Code\Diagrams\ModelsLayerDiagram.cs" />
+    <Compile Include="Code\Diagrams\FixUpDiagram.cs" />
+    <Compile Include="Code\Diagrams\Serializer\ComponentModelDiagramSerializer.cs" />
+    <Compile Include="Code\Diagrams\ComponentModelDiagram.cs" />
+    <Compile Include="Code\Shapes\EntityShape.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Code\Strategies\StrategyBase.cs" />
+    <Compile Include="Code\Utilitaires\ClassNameHelper.cs" />
+    <Compile Include="Code\Repository\Providers\WebServiceFileReference.cs" />
+    <Compile Include="Code\Models\BusinessLayerModel.cs" />
+    <Compile Include="Code\Models\SoftwareComponent.cs" />
+    <Compile Include="Code\Models\Operation.cs" />
+    <Compile Include="Code\Models\PackageModel.cs" />
+    <Compile Include="Code\Models\DataType.cs" />
+    <Compile Include="Code\Models\DALLayerModel.cs" />
+    <Compile Include="Code\Models\DataLayer.cs" />
+    <Compile Include="Code\Models\PresentationLayerModel.cs" />
+    <Compile Include="Code\Models\Layer.cs" />
+    <Compile Include="Code\Models\Property.cs" />
+    <Compile Include="Code\Models\TypedElement.cs" />
+    <Compile Include="Code\Repository\References\ReferencesCollection.cs" />
+    <Compile Include="Code\Repository\ModelLoader.cs" />
+    <Compile Include="Code\Interfaces\IRepositoryProvider.cs" />
+    <Compile Include="Code\Repository\Providers\FileRepositoryProvider.cs" />
+    <Compile Include="Code\Repository\Providers\WebServiceRepositoryProvider.cs" />
+    <Compile Include="Code\Repository\RepositoryManager.cs" />
+    <Compile Include="Code\Rules\Change\ExternalSystemFileNameChangeRule.cs" />
+    <Compile Include="Code\Rules\Insert\ExternalSystemInsertRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Code\Rules\SystemModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Repository\RepositoryTreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Repository\RepositoryTreeForm.Designer.cs">
+      <DependentUpon>RepositoryTreeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Shapes\Component\SoftwareComponent\SoftwareComponentShape.cs" />
+    <Compile Include="Code\Forms\Rules\ApplicationNamespaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Rules\ApplicationNamespaceForm.Designer.cs">
+      <DependentUpon>ApplicationNamespaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Shapes\PackageShape.cs" />
+    <Compile Include="Code\Shapes\Component\SoftwareComponent\Layers\ModelsLayerShape.cs" />
+    <Compile Include="Code\Shapes\Component\ExternalComponentShape.cs" />
+    <Compile Include="Code\Strategies\Attributes\NamingStrategyAttribute.cs" />
+    <Compile Include="Code\Strategies\Attributes\StrategyAttribute.cs" />
+    <Compile Include="Code\Strategies\CustomProperties\DependencyPropertyDescriptor.cs" />
+    <Compile Include="Code\Strategies\CustomProperties\StrategyProviderTypeDescription.cs" />
+    <Compile Include="Code\Forms\Strategies\StrategiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\Strategies\StrategiesForm.Designer.cs">
+      <DependentUpon>StrategiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Strategies\Interfaces\INamingStrategy.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IStrategy.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IStrategyAddChildWizard.cs" />
+    <Compile Include="Code\Strategies\Interfaces\ICustomizableElement.cs" />
+    <Compile Include="Code\Strategies\Interfaces\IStrategyManager.cs" />
+    <Compile Include="Code\Strategies\Impl\NamingStrategy\BaseNamingStrategy.cs" />
+    <Compile Include="Code\Strategies\Config\StrategyCollection.cs" />
+    <Compile Include="Code\Strategies\StrategyManager.cs" />
+    <Compile Include="Code\Strategies\CustomizableElement.cs" />
+    <Compile Include="Code\Models\Model.cs" />
+    <Compile Include="Code\Forms\VirtualTreeGrid\DataGridViewDirection.cs">
+    </Compile>
+    <Compile Include="Code\Forms\VirtualTreeGrid\DataGridViewCheckBoxColumn.cs" />
+    <Compile Include="Code\Forms\VirtualTreeGrid\DataGridViewDropwDownList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\VirtualTreeGrid\DataGridViewName.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\VirtualTreeGrid\events.cs" />
+    <Compile Include="Code\Forms\VirtualTreeGrid\VirtualTreeGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Code\Forms\VirtualTreeGrid\VirtualTreeGridItem.cs">
+    </Compile>
+    <Compile Include="Code\Forms\VirtualTreeGrid\VirtualTreeGridResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VirtualTreeGridResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\WindowsPane\Port\OperationsDesignerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\WindowsPane\Port\OperationsDesignerForm.Designer.cs">
+      <DependentUpon>OperationsDesignerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\WindowsPane\Port\WindowPane.cs" />
+    <Compile Include="Code\WindowsPane\Repository\RepositoryWindowPane.cs" />
+    <Compile Include="GeneratedCode\ConnectionBuilders.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConnectionBuilders.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\Connectors.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Connectors.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\Diagram.cs">
+      <DependentUpon>Diagram.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="GeneratedCode\DirectiveProcessor.cs">
+      <DependentUpon>DirectiveProcessor.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="GeneratedCode\DomainClasses.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DomainClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\DomainRelationships.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DomainRelationships.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\HelpKeywordHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelpKeywordHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\MultiplicityValidation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultiplicityValidation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\PropertiesGrid.cs">
+      <DependentUpon>PropertiesGrid.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="GeneratedCode\SerializationHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SerializationHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\Serializer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Serializer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\Shapes.cs">
+      <DependentUpon>Shapes.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="GeneratedCode\ToolboxHelper.cs">
+      <DependentUpon>ToolboxHelper.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Properties\GuiResources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GuiResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GeneratedCode\DomainModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DomainModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyCommonInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GeneratedCode\ConnectionBuilders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConnectionBuilders.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\Diagram.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Diagram.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\DirectiveProcessor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DirectiveProcessor.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\DomainRelationships.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DomainRelationships.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\Connectors.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Connectors.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\DomainClasses.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DomainClasses.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\DomainModelResx.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DomainModelResx.resx</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\MultiplicityValidation.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MultiplicityValidation.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\PropertiesGrid.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PropertiesGrid.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\DomainModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DomainModel.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\Serializer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Serializer.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\Shapes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Shapes.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\ToolboxHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ToolboxHelper.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GeneratedCode\DomainModelResx.resx">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DomainModelResx.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <StartProgram>$(DevEnvDir)\devenv.exe</StartProgram>
+    <StartAction>Program</StartAction>
+    <StartArguments>/rootsuffix Exp /DesignTimeRun "..\..\..\Debugging\Debugging.sln"</StartArguments>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Resources\ApplicationShapeIcon.bmp" />
+    <Content Include="Resources\appworkflowshapeicon.bmp" />
+    <Content Include="Resources\ArgumentVerticalLine.bmp" />
+    <Content Include="Resources\ArgumentVerticalLineEnd.bmp" />
+    <Content Include="Resources\Blank.bmp" />
+    <None Include="Code\Repository\Repository.cd" />
+    <None Include="Code\Schemas\Strategies.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Code\Schemas\Strategies.xsx">
+      <DependentUpon>Strategies.xsd</DependentUpon>
+    </None>
+    <None Include="Code\Schemas\strategyManifest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Code\Schemas\strategyManifest.xsx">
+      <DependentUpon>strategyManifest.xsd</DependentUpon>
+    </None>
+    <None Include="Diagrammes\BinaryComponent.cd" />
+    <None Include="Diagrammes\ModelsLayer.cd" />
+    <None Include="Diagrammes\Relations.cd" />
+    <None Include="Diagrammes\SoftwareComponent.cd" />
+    <None Include="Code\Strategies\strategies.cd" />
+    <None Include="Diagrammes\strategies.cd" />
+    <None Include="Diagrammes\TypedElement.cd" />
+    <None Include="DslDefinition.dsl" />
+    <None Include="DslDefinition.dsl.diagram">
+      <DependentUpon>DslDefinition.dsl</DependentUpon>
+    </None>
+    <None Include="GeneratedCode\HelpKeywordHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HelpKeywordHelper.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\CandleModelSchema.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CandleModelSchema.xsd</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\CandleModelSchema.xsd">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CandleModelSchema.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GeneratedCode\CandleModelSchema.xsx">
+      <DependentUpon>CandleModelSchema.xsd</DependentUpon>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Resources\cat_main.gif" />
+    <None Include="Resources\Code.png" />
+    <Content Include="Resources\Composants.bmp" />
+    <Content Include="Resources\Collapsed.bmp" />
+    <Content Include="Resources\CollapsedEnd.bmp" />
+    <None Include="Resources\Connecteur.png" />
+    <Content Include="Resources\DalLayerImage.gif" />
+    <Content Include="Resources\DalLayerShapeIcon.bmp" />
+    <None Include="Resources\Error.bmp" />
+    <None Include="Resources\document.ico" />
+    <None Include="Resources\Database.png" />
+    <None Include="Resources\doc.png" />
+    <None Include="Resources\database.bmp" />
+    <None Include="Resources\DragScrollCursor.cur" />
+    <Content Include="Resources\ExampleConnectorToolBitmap.bmp" />
+    <Content Include="Resources\ExampleShapeToolBitmap.bmp" />
+    <Content Include="Resources\Expanded.bmp" />
+    <Content Include="Resources\ExpandedEnd.bmp" />
+    <Content Include="Resources\File.ico" />
+    <Content Include="Resources\FillDownHS.bmp" />
+    <Content Include="Resources\FillUpHS.BMP" />
+    <None Include="Resources\folderopen.ico" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\gear_1.bmp" />
+    <Content Include="Resources\GeneralizationTool.bmp" />
+    <None Include="Resources\gif\Composants.gif" />
+    <None Include="Resources\gif\Logo.gif" />
+    <None Include="Resources\keys.bmp" />
+    <Content Include="Resources\LayerUsesPortConnectorIcon.bmp" />
+    <None Include="Resources\Librairies.png" />
+    <Content Include="Resources\modelclassicon.bmp" />
+    <Content Include="Resources\ModelLayerImage.png" />
+    <Content Include="Resources\ModelsLayerImage.gif" />
+    <None Include="Resources\m_translation_icon.gif" />
+    <None Include="Resources\picto_arrow_down.gif" />
+    <None Include="Resources\picto_arrow_up.gif" />
+    <Content Include="Resources\PortDelegatesToOutputPortConnectorIcon.bmp" />
+    <Content Include="Resources\portshapeicon.bmp" />
+    <None Include="Resources\RefreshDocViewHS.bmp" />
+    <None Include="Resources\Property.bmp" />
+    <Content Include="Resources\RootClassIcon.bmp" />
+    <Content Include="Resources\ServiceLayerImage.png" />
+    <Content Include="Resources\ServicesLayerShapeIcon.bmp" />
+    <None Include="Resources\Tools.png" />
+    <Content Include="Resources\UILayerImage.png" />
+    <Content Include="Resources\UnidirectionTool.bmp" />
+    <Content Include="Resources\VerticalLine.bmp" />
+    <Content Include="Resources\VSObject_Class.bmp" />
+    <None Include="Resources\VSObject_Enum.bmp" />
+    <None Include="Resources\VSObject_Library.bmp" />
+    <None Include="Resources\VSObject_Interface.bmp" />
+    <None Include="Resources\VSObject_Namespace.bmp" />
+    <None Include="Resources\VSObject_Method.bmp" />
+    <None Include="Resources\VSObject_Properties.bmp" />
+    <Content Include="Resources\webuilayershapeicon.bmp" />
+    <None Include="Resources\XMLWS.png" />
+    <None Include="Resources\workflow.png" />
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Code\Forms\CandleLogWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CandleLogWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Commands\ConfigurationEditorDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConfigurationEditorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Commands\SelectModelForm.resx">
+      <DependentUpon>SelectModelForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Commands\PublishAsTemplateWizardPage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PublishAsTemplateWizardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Commands\ReverseModelsForm.resx">
+      <DependentUpon>ReverseModelsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Config\OptionsInitForm.fr.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OptionsInitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\RelationShips\PropagatesOperationsDialog.resx">
+      <DependentUpon>PropagatesOperationsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Repository\PublishModelForm.resx">
+      <DependentUpon>PublishModelForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Repository\RepositoryPropertiesForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RepositoryPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Strategies\LanguageConfigurationControl.resx">
+      <DependentUpon>LanguageConfigurationControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Strategies\NamingStrategyControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NamingStrategyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Strategies\PromptBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PromptBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Commands\ShowDependenciesForm.resx">
+      <DependentUpon>ShowDependenciesForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Commands\ImportProjectWizard.resx">
+      <DependentUpon>ImportProjectWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Commands\SelectAssemblyForm.resx">
+      <DependentUpon>SelectAssemblyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Config\OptionsServersPageControl.resx">
+      <DependentUpon>OptionsServersPageControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Config\OptionsInitForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OptionsInitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Config\OptionsPageControl.resx">
+      <DependentUpon>OptionsPageControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Wizards\NamespacesSelectorDialog.resx">
+      <DependentUpon>NamespacesSelectorDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Wizards\ProjectWizard\StrategyWizardPage.resx">
+      <DependentUpon>StrategyWizardPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Wizards\TypeSelectorDialog.resx">
+      <DependentUpon>TypeSelectorDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Repository\ModelSynchronizationForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ModelSynchronizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Rules\AssociationPropertiesSelectorForm.resx">
+      <DependentUpon>AssociationPropertiesSelectorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Rules\AbstractTemplate.resx">
+      <DependentUpon>AbstractTemplate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Rules\StrategyWizard\DAOSelectorDlg.resx">
+      <DependentUpon>DAOSelectorDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Config\DomainPathSelector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DomainPathSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Wizards\Fwk\CandleWizardForm.resx">
+      <DependentUpon>CandleWizardForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Wizards\Fwk\CandleWizardPage.resx">
+      <DependentUpon>CandleWizardPage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Strategies\StrategiesListControl.resx">
+      <DependentUpon>StrategiesListControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Strategies\RunningStrategiesForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RunningStrategiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Strategies\SelectStrategyDialog.resx">
+      <DependentUpon>SelectStrategyDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Repository\RepositoryTreeControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RepositoryTreeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Rules\ApplicationNamespaceForm.resx">
+      <DependentUpon>ApplicationNamespaceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Repository\RepositoryTreeForm.resx">
+      <DependentUpon>RepositoryTreeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Rules\ReferencedAssembliesForm.resx">
+      <DependentUpon>ReferencedAssembliesForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Rules\StrategyWizard\NewServiceImplementation.resx">
+      <DependentUpon>NewServiceImplementation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Commands\ArtifactEditorDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ArtifactEditorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\Strategies\StrategiesForm.resx">
+      <DependentUpon>StrategiesForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Strategies\Mapper\SelectFile.resx">
+      <DependentUpon>SelectFile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\TypeEditors\OperationSelectorDlg.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OperationSelectorDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\TypeEditors\TargetModelSelector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TargetModelSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\SchemaDiscover\EntityNameConfirmation.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EntityNameConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\Forms\VirtualTreeGrid\VirtualTreeGridResource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>VirtualTreeGridResource.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>DSLFactory.Candle.SystemModel.Utilities</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\WindowsPane\Port\OperationsDesignerForm.resx">
+      <DependentUpon>OperationsDesignerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\GuiResources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GuiResources1.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>DSLFactory.Candle.SystemModel.Forms</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ConnectorSourceSearch.cur" />
+    <EmbeddedResource Include="Resources\ConnectorTargetSearch.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\bmp\" />
+  </ItemGroup>
+</Project>
