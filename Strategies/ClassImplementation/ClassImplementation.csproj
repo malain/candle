@@ -1,0 +1,86 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7FB66F7D-F6AD-4015-BF53-A29D6A993518}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DSLFactory.Candle.Strategies.ClassImplementation</RootNamespace>
+    <AssemblyName>DSLFactory.Candle.Strategies.ClassImplementation</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSLFactory.Candle.SystemModel.Dsl, Version=0.9.0.0, Culture=neutral, PublicKeyToken=13017b9653baedb6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DSLFactory.Candle.SystemModel.Dsl.dll</HintPath>
+    </Reference>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk, Version=8.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\ClassImplementationStrategy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="strategy.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Templates\ClassImplementation.t4" />
+    <None Include="Templates\CustomClassImplementation.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Artefacts\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <!--  <UsingTask TaskName="DSLFactory.Candle.SystemModel.MSBuild.CandleStrategyPackager" AssemblyName="DSLFactory.Candle.SystemModel.DslPackage, Version=0.9.0.0, Culture=neutral, PublicKeyToken=13017B9653BAEDB6" />
+  <PropertyGroup>
+    <PackageFileName>$(MSBuildProjectDirectory)\$(MSBuildProjectName).zip</PackageFileName>
+    <PublishingUri>
+		file://$(MSBuildProjectDirectory)\..\..\CandleRepository\App_Data\Strategies
+	</PublishingUri>
+  </PropertyGroup>
+  <ItemGroup>
+    <StrategyArtefacts Include="$(MSBuildProjectDirectory)\*.manifest" />
+    <StrategyArtefacts Include="$(MSBuildProjectDirectory)\templates\*.t4" />
+  </ItemGroup>
+  <Target Name="AfterBuild">
+    <CandleStrategyPackager TargetUrl="$(PublishingUri)" ContinueOnError="false" Package="$(PackageFileName)" Artefacts="@(StrategyArtefacts->'%(FullPath)')">
+    </CandleStrategyPackager>
+  </Target>-->
+</Project>

@@ -1,0 +1,155 @@
+<#@ template debug="true" inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<# 
+DataLayer modelsLayer = Context.Model.SoftwareComponent.DataLayer;
+ClassImplementation port = CurrentElement;
+Entity clazz =  port.AssociatedEntity;
+ServiceContract contract = port.Contract;
+if( !(port.Layer is DataAccessLayer)  )
+	return null;
+
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate)
+{
+	port.Layer.AddReferenceToService(new Guid("c3fe1896-3e77-4dae-b6ea-87f4cd01d597"), "NHibernate", new VersionInfo(1,0,2,0), "NHibernate");
+	return null;
+}
+
+// Element added
+if( Context.GenerationPass == GenerationPass.ElementAdded && clazz != null)
+{
+	if( contract == null )
+		return null;	
+
+		// DELETE
+		Operation op = new Operation(clazz.Store);
+		op.Name = "Delete";
+		contract.Operations.Add(op);
+		
+		Argument arg = new Argument(clazz.Store);
+		op.Arguments.Add(arg);
+		arg.Name = "item";
+		arg.Type = clazz.Name;
+
+		// Insert
+		op = new Operation(clazz.Store);
+		op.Name = "Save";
+		contract.Operations.Add(op);
+		
+		arg = new Argument(clazz.Store);
+		op.Arguments.Add(arg);
+		arg.Name = "item";
+		arg.Type = clazz.Name;
+
+		// Load
+		op = new Operation(clazz.Store);
+		op.Name = "Load";
+		op.Type = clazz.Name;
+		contract.Operations.Add(op);
+		
+		arg = new Argument(clazz.Store);
+		op.Arguments.Add(arg);
+		arg.Name = "item";
+		arg.Type = clazz.Name;
+
+		// Load
+		op = new Operation(clazz.Store);
+		op.Name = "ListAll";
+		op.IsCollection = true;
+		op.Type = clazz.Name;
+		contract.Operations.Add(op);
+	
+	return null;
+}
+#>
+<#=this.GeneratedHeader#>
+
+using System;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Collections;
+using System.Collections.Generic;
+using NHibernate;
+
+namespace <#=port.Layer.Namespace#> 
+{
+	public partial class <#=port.Name#>Base 
+	{	
+		/// <summary>
+		/// Session courante de NHibernate
+		/// </summary>
+		protected ISession CurrentSession
+		{
+			get {return NHibernate.Utilities.NHibernateSessionManager.Instance.GetSession();}
+		}		
+		
+<#if(clazz!= null) {
+		if(contract != null && contract.OperationExists("ListAll")) {
+#>
+		public virtual System.Collections.Generic.List<<#=clazz.FullName#>> ListAll()
+		{
+			IQuery query = CurrentSession.CreateQuery("from <#=clazz.Name#>");
+			System.Collections.Generic.List<<#=clazz.FullName#>> list = new System.Collections.Generic.List<<#=clazz.FullName#>>();
+            foreach (<#=clazz.FullName#> item in query.List())
+				list.Add(item);
+			return list;
+		}
+<#}
+		if(contract != null && contract.OperationExists("Load", new TypeDefinition(clazz.Name, false))) {
+#>
+		/// <summary>
+		/// Lecture d'un <#=clazz.Name#>
+		/// </summary>
+		public virtual <#=clazz.FullName#> Load(<#=clazz.FullName#> item)
+		{
+<#
+if( clazz.PrimaryKeys.Count > 1 ) {
+	string primaryKeyType = String.Format("{0}.{1}", clazz.FullName, "PrimaryKey");
+#>	
+			<#=primaryKeyType#> key = new <#=primaryKeyType#>();
+<#			
+			foreach(Property prop in clazz.PrimaryKeys)
+			{
+#>
+				key.<#=prop.Name#> = item.<#=prop.Name#>;			
+<#			}
+#>
+			return (<#=clazz.FullName#>)CurrentSession.Load( typeof(<#=clazz.FullName#>), key);
+<#
+	} else {
+#>
+			return (<#=clazz.FullName#>)CurrentSession.Load( typeof(<#=clazz.FullName#>), item);
+<#	}			
+#>
+		}
+<#}
+		if(contract != null && contract.OperationExists("Delete", new TypeDefinition(clazz.Name, false))) {
+#>
+		
+		/// <summary>
+		/// Suppression d'un <#=clazz.Name#>
+		/// </summary>
+		public virtual void Delete(<#=clazz.FullName#> item)
+		{
+			CurrentSession.Delete( item );
+		}
+<#}
+		if(contract != null && contract.OperationExists("Save", new TypeDefinition(clazz.Name, false))) {
+#>
+		
+		/// <summary>
+		/// Sauvegarde d'un <#=clazz.Name#>
+		/// </summary>
+		public virtual void Save(<#=clazz.FullName#> item)
+		{
+			CurrentSession.Save(item);
+		}
+<#  }
+}#>		
+	}
+}	
+
+
+
+
+

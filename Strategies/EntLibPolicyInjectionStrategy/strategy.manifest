@@ -1,0 +1,6 @@
+﻿<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StrategyBase xsi:type="EntLibPolicyInjectionStrategy" name="EntLibPolicyInjectionStrategy" enabled="true">
+    <Description>Intégration de stratégie de cache et de logging.</Description>
+    <DisplayName>Log et Cache</DisplayName>
+  </StrategyBase>
+</manifest>

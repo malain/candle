@@ -1,0 +1,5 @@
+﻿<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<StrategyBase xsi:type="NHibernateStrategy" name="NHibernate" id="NHibernate" enabled="true" path="" url="">
+		<Description>DAL and entity implementation using NHibernate</Description>
+	</StrategyBase>
+</manifest>

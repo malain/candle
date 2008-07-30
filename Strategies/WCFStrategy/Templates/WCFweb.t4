@@ -1,0 +1,15 @@
+<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<#@ import namespace="System.Text" #>
+<# 
+ClassImplementation port = CurrentElement;
+// Metamodel updates
+if( Context.GenerationPass != GenerationPass.CodeGeneration || port == null)
+{
+	return null;
+}
+#>
+<!--
+<#=this.GeneratedHeader#>
+-->
+<%@ ServiceHost Language="C#"  Service="<#= port.FullName #>" %>

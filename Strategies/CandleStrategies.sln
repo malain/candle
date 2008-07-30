@@ -1,0 +1,165 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassImplementation", "ClassImplementation\ClassImplementation.csproj", "{7FB66F7D-F6AD-4015-BF53-A29D6A993518}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceStrategy", "InterfaceStrategy\InterfaceStrategy.csproj", "{213E896E-A64B-4DC6-B893-EBDE95399E65}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesStrategy", "EntitiesStrategies\EntitiesStrategy.csproj", "{67112BFF-8852-400F-B160-232078D1C623}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateStrategies", "NHibernateStrategies\NHibernateStrategies.csproj", "{6D4B2B6E-691E-4055-B458-7CFBD6236790}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceFactory", "ServiceFactory\ServiceFactory.csproj", "{1AD67088-3FCB-42B6-ADBB-EC202F70A9E3}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFStrategy", "WCFStrategy\WCFStrategy.csproj", "{86DAD0D5-B0AA-454C-9677-9ABD2F55C8F0}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceStrategy", "WebServiceStrategy\WebServiceStrategy.csproj", "{545A7297-F67F-40A3-A1DF-FFB4115E26C7}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSTemplateStrategy", "VSTemplateStrategy\VSTemplateStrategy.csproj", "{156569CC-1925-475D-B281-209444B0A79B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntLibPolicyInjectionStrategy", "EntLibPolicyInjectionStrategy\EntLibPolicyInjectionStrategy.csproj", "{9FC978D9-F628-4E96-B6BE-1590E0246819}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFSStrategy", "TFSStrategy\TFSStrategy.csproj", "{025D75A6-EF1A-4DE6-89B0-88C7AFAEE749}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VersionningStrategy", "VersionningStrategy\VersionningStrategy.csproj", "{7D5C7190-4101-4555-974D-FE2FF6EB227B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs03.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ClassImplementation\\ClassImplementation.csproj
+		SccProjectName1 = ClassImplementation
+		SccLocalPath1 = ClassImplementation
+		SccProjectUniqueName2 = EntitiesStrategies\\EntitiesStrategy.csproj
+		SccProjectName2 = EntitiesStrategies
+		SccLocalPath2 = EntitiesStrategies
+		SccProjectUniqueName3 = EntLibPolicyInjectionStrategy\\EntLibPolicyInjectionStrategy.csproj
+		SccProjectName3 = EntLibPolicyInjectionStrategy
+		SccLocalPath3 = EntLibPolicyInjectionStrategy
+		SccProjectUniqueName4 = InterfaceStrategy\\InterfaceStrategy.csproj
+		SccProjectName4 = InterfaceStrategy
+		SccLocalPath4 = InterfaceStrategy
+		SccProjectUniqueName5 = NHibernateStrategies\\NHibernateStrategies.csproj
+		SccProjectName5 = NHibernateStrategies
+		SccLocalPath5 = NHibernateStrategies
+		SccProjectUniqueName6 = ServiceFactory\\ServiceFactory.csproj
+		SccProjectName6 = ServiceFactory
+		SccLocalPath6 = ServiceFactory
+		SccProjectUniqueName7 = TFSStrategy\\TFSStrategy.csproj
+		SccProjectName7 = TFSStrategy
+		SccLocalPath7 = TFSStrategy
+		SccProjectUniqueName8 = VersionningStrategy\\VersionningStrategy.csproj
+		SccProjectName8 = VersionningStrategy
+		SccLocalPath8 = VersionningStrategy
+		SccProjectUniqueName9 = VSTemplateStrategy\\VSTemplateStrategy.csproj
+		SccProjectName9 = VSTemplateStrategy
+		SccLocalPath9 = VSTemplateStrategy
+		SccProjectUniqueName10 = WCFStrategy\\WCFStrategy.csproj
+		SccProjectName10 = WCFStrategy
+		SccLocalPath10 = WCFStrategy
+		SccProjectUniqueName11 = WebServiceStrategy\\WebServiceStrategy.csproj
+		SccProjectName11 = WebServiceStrategy
+		SccLocalPath11 = WebServiceStrategy
+	EndGlobalSection
+	GlobalSection(TextTemplating) = postSolution
+		TextTemplating = 1
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FB66F7D-F6AD-4015-BF53-A29D6A993518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB66F7D-F6AD-4015-BF53-A29D6A993518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB66F7D-F6AD-4015-BF53-A29D6A993518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB66F7D-F6AD-4015-BF53-A29D6A993518}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213E896E-A64B-4DC6-B893-EBDE95399E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213E896E-A64B-4DC6-B893-EBDE95399E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213E896E-A64B-4DC6-B893-EBDE95399E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213E896E-A64B-4DC6-B893-EBDE95399E65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67112BFF-8852-400F-B160-232078D1C623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67112BFF-8852-400F-B160-232078D1C623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67112BFF-8852-400F-B160-232078D1C623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67112BFF-8852-400F-B160-232078D1C623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D4B2B6E-691E-4055-B458-7CFBD6236790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D4B2B6E-691E-4055-B458-7CFBD6236790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D4B2B6E-691E-4055-B458-7CFBD6236790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D4B2B6E-691E-4055-B458-7CFBD6236790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AD67088-3FCB-42B6-ADBB-EC202F70A9E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AD67088-3FCB-42B6-ADBB-EC202F70A9E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AD67088-3FCB-42B6-ADBB-EC202F70A9E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AD67088-3FCB-42B6-ADBB-EC202F70A9E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86DAD0D5-B0AA-454C-9677-9ABD2F55C8F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86DAD0D5-B0AA-454C-9677-9ABD2F55C8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86DAD0D5-B0AA-454C-9677-9ABD2F55C8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86DAD0D5-B0AA-454C-9677-9ABD2F55C8F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{545A7297-F67F-40A3-A1DF-FFB4115E26C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545A7297-F67F-40A3-A1DF-FFB4115E26C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545A7297-F67F-40A3-A1DF-FFB4115E26C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545A7297-F67F-40A3-A1DF-FFB4115E26C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{156569CC-1925-475D-B281-209444B0A79B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156569CC-1925-475D-B281-209444B0A79B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156569CC-1925-475D-B281-209444B0A79B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FC978D9-F628-4E96-B6BE-1590E0246819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FC978D9-F628-4E96-B6BE-1590E0246819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FC978D9-F628-4E96-B6BE-1590E0246819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FC978D9-F628-4E96-B6BE-1590E0246819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{025D75A6-EF1A-4DE6-89B0-88C7AFAEE749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025D75A6-EF1A-4DE6-89B0-88C7AFAEE749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{025D75A6-EF1A-4DE6-89B0-88C7AFAEE749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{025D75A6-EF1A-4DE6-89B0-88C7AFAEE749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D5C7190-4101-4555-974D-FE2FF6EB227B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D5C7190-4101-4555-974D-FE2FF6EB227B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D5C7190-4101-4555-974D-FE2FF6EB227B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D5C7190-4101-4555-974D-FE2FF6EB227B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

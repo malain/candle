@@ -1,0 +1,52 @@
+﻿<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<#@ assembly name="DSLFactory.Candle.Strategies.ClassImplementation"#>
+<#@ import namespace="DSLFactory.Candle.SystemModel.Strategies"#>
+<#@ import namespace="System.Text" #>
+<# 
+ClassImplementation clazz = CurrentElement;
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate || clazz == null)
+{
+	return null;
+}
+if( Context.GenerationPass != GenerationPass.CodeGeneration)
+	return null;
+
+string impl = String.Empty;
+string modifier = String.Empty;
+if( ClassImplementationStrategy.ClassGenerateDoubleDerivate.GetValue(clazz) == true) {
+    impl = clazz.Name + "Base";
+    modifier = " override";
+}
+if( clazz.Contract != null ) {
+    if( impl.Length > 0)
+        impl += ", "; 
+    impl += clazz.Contract.FullName;
+}
+if( impl.Length > 0)
+    impl = ": " + impl;
+#>
+
+using System;
+
+namespace <#=clazz.Layer.Namespace#> 
+{
+<#=FormatComment("\t", clazz.Comment)#>
+	public partial class <#=clazz.Name#> <#=impl#>
+	{	
+<# 
+	foreach(Operation op in clazz.Operations)
+	{
+#>
+<#=FormatComment("\t\t", op.Comment)#>
+		<#=String.Format("public{0} {1} {2}( {3} )", modifier, op.FullTypeName, op.Name, op.CreateParametersDefinition())#>
+        {
+            throw new Exception("<#=op.Name#> is not implemented");
+        }
+
+<# 
+    }
+#>
+    }    
+}

@@ -1,0 +1,32 @@
+<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<#
+SoftwareLayer layer = CurrentElement;
+if( layer == null )
+	return null;
+#>
+<#=this.GeneratedHeader#>
+
+#region Using directives
+
+using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Runtime.ConstrainedExecution;
+
+#endregion
+
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
+
+[assembly: AssemblyProduct( @"<#=layer.Component.Model.Name#>" )]
+[assembly: AssemblyVersion( @"<#=layer.Component.Model.Version.ToString()#>" )]
+[assembly: AssemblyDescription( @"<#=layer.Comment#>" )]
+[assembly: AssemblyTitle( @"<#=layer.FullName#>" )]
+
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("<#=layer.Id#>")]
+

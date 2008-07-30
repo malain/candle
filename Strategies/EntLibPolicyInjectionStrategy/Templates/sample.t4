@@ -1,0 +1,56 @@
+<#@ template debug="true" inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<# 
+// Get the typed current element
+ClassImplementation port = CurrentElement;
+
+// You can access directly to the model
+DataLayer modelsLayer = Context.Model.SoftwareComponent.DataLayer;
+
+// Pass one : You can update the meta model. No code is generated
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate)
+{
+	// You can add reference to the layer
+	port.Layer.AddReferenceToService("FrameworkASF", new VersionInfo(2,2,0,0), "ASF.Systemes.Data.NHibernate");
+	
+	// And add some operations 
+	if( !port.IsOperationExists("Delete", clazz.FullName) ) // arg=operation name, return type
+	{
+		// DELETE
+		Operation op = new Operation(clazz.Store);
+		op.Name = "Delete";
+		port.Operations.Add(op);
+		
+		Argument arg = new Argument(clazz.Store);
+		op.Arguments.Add(arg);
+		arg.Name = "item";
+		arg.Type = clazz.FullName;
+	}		
+	
+	// Always return null	
+	return null;
+}
+#>
+<#=this.GeneratedHeader#>
+
+using System;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Collections;
+using System.Collections.Generic;
+using NHibernate;
+
+namespace <#=port.Layer.Namespace#> 
+{
+	public partial class <#=port.Name#>
+	{	
+	}
+}	
+
+
+
+
+
+
+

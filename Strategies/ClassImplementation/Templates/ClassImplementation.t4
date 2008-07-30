@@ -1,0 +1,111 @@
+﻿<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<#@ assembly name="DSLFactory.Candle.Strategies.ClassImplementation" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="DSLFactory.Candle.SystemModel.Strategies"#>
+<# 
+ClassImplementation port = CurrentElement;
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate || port == null)
+{
+	return null;
+}
+if( Context.GenerationPass != GenerationPass.CodeGeneration)
+	return null;
+
+string impl = "Base";
+if( ClassImplementationStrategy.ClassGenerateDoubleDerivate.GetValue(port) == false) 
+{
+    impl = String.Empty;
+    if( port.Contract != null ) 
+        impl = String.Concat(" :", port.Contract.FullName);
+}
+#>
+<#=this.GeneratedHeader#>
+
+using System;
+
+namespace <#=port.Layer.Namespace#> 
+{
+<#=FormatComment("\t", port.Comment)#>
+	public partial class <#=port.Name + impl#>
+	{	
+<# 
+	foreach(Operation op in port.Operations)
+	{
+#>
+<#=FormatComment("\t\t", op.Comment)#>
+		<#=String.Format("{0} {1} {2}( {3} )", "public virtual ", op.FullTypeName, op.Name, op.CreateParametersDefinition())#>
+        {
+            throw new Exception("<#=op.Name#> is not implemented");
+        }
+
+<# 
+    }
+#>
+
+<#
+if( port.Contract != null )
+{
+#>
+    #region <#= port.Contract.Name #>
+<#
+	foreach(Operation op in port.Contract.Operations)
+	{
+#>
+<#=FormatComment("\t\t", op.Comment)#>
+		<#=String.Format("{0} {1} {2}( {3} )", "public virtual", op.FullTypeName, op.Name, op.CreateParametersDefinition())#>
+		{
+<#		int index=0;
+		string resultName = String.Format("throw new Exception(\"'{0}.{1}' is not implemented.\");",port.FullName,op.Name);
+		foreach(ClassUsesOperations link in ClassUsesOperations.GetLinksToServicesUsed(port))
+		{
+			TypeWithOperations serviceUsed = link.InternalTargetService;
+			if( serviceUsed == null )
+				serviceUsed = link.ExternalTargetService.ReferencedServiceContract;
+            if( serviceUsed == null )
+            {
+#>
+                ERROR : Unable to access to <#=link.ExternalTargetService.Name #>
+<# 
+            }
+
+			string serviceName = link.Name;
+			if( String.IsNullOrEmpty(serviceName))
+				serviceName = serviceUsed.Name;
+				
+			//Operation outputOperation = link.Operation;
+			//if( outputOperation == null )
+			Operation	outputOperation = serviceUsed.FindOperation(op);
+				
+			if( outputOperation != null )
+			{	
+		    index++;
+		    resultName = String.Empty;
+#>
+			<#=serviceUsed.FullName#> service = (<#=serviceUsed.FullName#>)ServiceLocator.<#=serviceName#>;
+<#			if( outputOperation.Type != "void" )
+			  {
+						resultName = "result" + index.ToString();
+#>
+				<#= outputOperation.FullTypeName #> <#=resultName#> = 			
+<#					resultName = "return " + resultName + ";";
+			  } 
+#>
+				service.<#=outputOperation.Name#>(<#=outputOperation.CreateParameterList()#>);
+<#
+			} // if( outputOperation != null )
+		} // foreach(
+#>			
+			<#= resultName #>
+		}				
+
+<#
+	} // foreach(Operation op...
+#>
+    #endregion
+<#
+}
+#>
+    }    
+}

@@ -1,0 +1,44 @@
+<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<#@ import namespace="System.Text" #>
+<# 
+ClassImplementation port = CurrentElement;
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate && port != null)
+{
+	port.Layer.AddReference( "System.Web.Services",ArtifactType.AssemblyInGac);
+	return null;
+}
+if( Context.GenerationPass != GenerationPass.CodeGeneration)
+	return null;
+#>
+<#=this.GeneratedHeader#>
+
+using System;
+
+namespace <#=port.Layer.Namespace#> 
+{
+	[System.Web.Services.WebService(Namespace = "<#= port.Layer.Namespace #>", Name = "<#= port.Name #>WebService")]
+	[System.Web.Services.WebServiceBindingAttribute(ConformsTo = System.Web.Services.WsiProfiles.BasicProfile1_1, EmitConformanceClaims = true)]
+<#=FormatComment("\t", port.Comment)#>
+	public partial class <#=port.Name#>WS : System.Web.Services.WebService
+	{	
+<#
+	if( port.Contract != null )
+	{
+		foreach(Operation op in port.Contract.Operations)
+		{
+#>
+<#=FormatComment("\t\t", op.Comment)#>
+		[System.Web.Services.WebMethod()]
+		<#=String.Format("{0} {1} {2}( {3} )", "public", op.FullTypeName, op.Name, op.CreateParametersDefinition())#>
+		{
+			<#=port.Contract.FullName#> proxy = new <#=port.Name#>();
+			<#= op.Type != "void" ? "return " : ""#>proxy.<#=op.Name#>(<#=op.CreateParameterList()#>);
+		}
+		
+<#		} // foreach
+	}
+#>
+    }    
+}

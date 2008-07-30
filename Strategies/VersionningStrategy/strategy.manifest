@@ -1,0 +1,5 @@
+﻿<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StrategyBase xsi:type="VersionningStrategy" name="Version Strategy" id="Versionning Strategy" enabled="true" path="" url="">
+    <Description>Skip sync assembly information and version number</Description>
+  </StrategyBase>
+</manifest>

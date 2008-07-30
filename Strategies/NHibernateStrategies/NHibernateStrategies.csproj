@@ -1,0 +1,102 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6D4B2B6E-691E-4055-B458-7CFBD6236790}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DSLFactory.Candle.Strategies.NHibernateStrategy</RootNamespace>
+    <AssemblyName>DSLFactory.Candle.Strategies.NHibernateStrategy</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSLFactory.Candle.SystemModel.Dsl, Version=0.9.0.0, Culture=neutral, PublicKeyToken=13017b9653baedb6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DSLFactory.Candle.SystemModel.Dsl.dll</HintPath>
+    </Reference>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk, Version=8.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\ClassInheritanceTree.cs" />
+    <Compile Include="Code\ClassInheritanceTreeNode.cs" />
+    <Compile Include="Code\GeneratorInfo.cs" />
+    <Compile Include="Code\GeneratorInfoEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Code\GeneratorInfoEditorDialog.Designer.cs">
+      <DependentUpon>GeneratorInfoEditorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\NHibernateStrategy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Code\GeneratorInfoEditorDialog.resx">
+      <DependentUpon>GeneratorInfoEditorDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="strategy.manifest" />
+    <None Include="Templates\EnumEntity.t4" />
+    <None Include="Templates\NHibernateDAO.t4" />
+    <None Include="Templates\NHibernateDALStandAlone.t4" />
+    <None Include="Templates\NHibernateEntityEx.t4" />
+    <None Include="Templates\NHibernateHttpModule.t4" />
+    <None Include="Templates\NHibernateSessionManager.t4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!--  <UsingTask TaskName="DSLFactory.Candle.SystemModel.MSBuild.CandleStrategyPackager" AssemblyName="DSLFactory.Candle.SystemModel.DslPackage, Version=0.9.0.0, Culture=neutral, PublicKeyToken=13017B9653BAEDB6" />
+  <PropertyGroup>
+        <PackageFileName>$(MSBuildProjectDirectory)\$(MSBuildProjectName).zip</PackageFileName>
+    <PublishingUri>
+		file://$(MSBuildProjectDirectory)\..\..\CandleRepository\App_Data\Strategies
+	</PublishingUri>
+  </PropertyGroup>
+  <ItemGroup>
+    <StrategyArtefacts Include="$(MSBuildProjectDirectory)\*.manifest" />
+    <StrategyArtefacts Include="$(MSBuildProjectDirectory)\artefacts\*" />
+    <StrategyArtefacts Include="$(MSBuildProjectDirectory)\templates\*.t4" />
+  </ItemGroup>
+  <Target Name="AfterBuild">
+    <CandleStrategyPackager ContinueOnError="false" TargetUrl="$(PublishingUri)" Package="$(PackageFileName)" Artefacts="@(StrategyArtefacts->'%(FullPath)')" />
+  </Target>-->
+</Project>

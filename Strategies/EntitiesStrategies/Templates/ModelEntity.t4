@@ -1,0 +1,118 @@
+<#@ template debug="true" inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<# 
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate)
+{
+	return null;
+}
+if( Context.GenerationPass != GenerationPass.CodeGeneration)
+	return null;
+
+DataLayer modelsLayer = Context.Model.SoftwareComponent.DataLayer;
+Entity clazz = CurrentElement;
+INamingStrategy ns = StrategyManager.GetInstance(clazz.Store).NamingStrategy;
+#>
+<#=this.GeneratedHeader#>
+
+using System;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Collections;
+
+namespace <#=clazz.Package.Name#> 
+{
+<#= FormatComment("\t", clazz.Comment)#>
+<#	if (!String.IsNullOrEmpty(clazz.XmlName) || !String.IsNullOrEmpty(modelsLayer.XmlNamespace) ) 
+{
+		System.Text.StringBuilder sb = new System.Text.StringBuilder("[XmlRoot(");
+		bool flag = false;
+		if( !String.IsNullOrEmpty(clazz.XmlName) ) {
+			sb.Append("ElementName=\"");
+			sb.Append(clazz.XmlName);
+			sb.Append("\"");
+			flag=true;
+		}
+		if( !String.IsNullOrEmpty(modelsLayer.XmlNamespace)) {
+			if( flag ) sb.Append(", ");
+			sb.Append("Namespace=\"");
+			sb.Append(modelsLayer.XmlNamespace);
+			sb.Append("\"");			
+		}
+		sb.Append(")]");
+#>	
+	<#=sb.ToString()#>
+<#}
+#>
+	[Serializable()]
+	public partial class <#=clazz.Name#><# if( clazz.SuperClass != null ) {#> : global::<#=clazz.SuperClass.FullName#> <#}#> 
+	{	
+		#region Variables 	
+<# foreach (Property prop in clazz.Properties) {
+	//	if( !prop.IsForeignKey || prop.IsPrimaryKey) 
+	{
+#>
+		private <#=prop.FullTypeName#><#=IsValueType(prop.FullTypeName)? "?" : ""#> <#=ns.CreatePrivateVariableName(prop.Name)#>;
+<#		}
+	}
+#>
+	
+<# System.Collections.Generic.IList<Association> associations = Association.GetLinksToTargets(clazz);
+	foreach (Association association in associations ) {#>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Candle", "<#=association.Id#>")]
+		private <#=association.FullTypeName#> <#=ns.CreatePrivateVariableName(association.SourceRoleName)#>;
+<#}#>		
+		#endregion
+		 
+		#region Accesseurs	
+<# 
+	// Ajout de l'attribut xmlName
+	foreach (Property prop in clazz.Properties) 
+	{
+		//if( !prop.IsForeignKey || prop.IsPrimaryKey)
+		{
+			string varName = ns.CreatePrivateVariableName(prop.Name);
+ 			if( !String.IsNullOrEmpty(prop.XmlName) )
+			{
+#>		
+		[XmlElement("<#=prop.XmlName#>")] 
+<#} 
+#>
+<#= FormatComment("\t\t", prop.Comment)#>
+		public <#=prop.FullTypeName#><#=IsValueType(prop.FullTypeName)? "?" : ""#> <#=prop.Name#>
+		{
+            [global::System.Diagnostics.DebuggerStepThrough]
+			get { return <#=varName#>;}
+            [global::System.Diagnostics.DebuggerStepThrough]
+			set { <#=varName#> = value;}
+		}
+		
+<#	}// endif if( prop. 
+} // end foreach( Property )
+
+        foreach (Association association in associations)
+        {
+        	string varName = ns.CreatePrivateVariableName(association.SourceRoleName);
+			if( !String.IsNullOrEmpty(association.XmlName) ) {
+#>		
+		[XmlElement(Name="<#=association.XmlName#>")] 
+<#  }			
+			if( association.SourceMultiplicity == Multiplicity.OneMany || association.SourceMultiplicity == Multiplicity.ZeroMany) {
+#>
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Candle", "<#=association.Id#>")]
+		[XmlArrayItem(typeof(global::<#= association.Target.FullName #>))]
+<#}#>		
+        public <#=association.FullTypeName#> <#=ns.ToPascalCasing(association.SourceRoleName) #>
+        {
+            [global::System.Diagnostics.DebuggerStepThrough]
+        	get { return <#=varName#>;}
+            [global::System.Diagnostics.DebuggerStepThrough]        	
+			set { <#=varName#> = value;}
+        }
+        
+<#
+        } // end foreach(Association
+#>	
+		#endregion	
+	}
+}	

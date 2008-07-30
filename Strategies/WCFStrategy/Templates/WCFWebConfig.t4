@@ -1,0 +1,61 @@
+<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<# 
+// Metamodel updates
+Layer layer = CurrentElement;
+if( Context.GenerationPass != GenerationPass.MetaModelUpdate)
+	return null;
+string baseAddress = Context.Model.BaseAddress;
+#>
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <system.serviceModel>
+    <services>
+<#
+foreach(ClassImplementation service in layer.Classes)
+{    
+    if( service.Contract == null )
+        continue;
+#>
+      <service 
+          name="<#=service.FullName#>"
+          behaviorConfiguration="<#=service.Name#>Behavior">
+<#
+					if(layer.HostingContext != HostingContext.Web && !String.IsNullOrEmpty(baseAddress)) {
+#>          
+        <host>
+          <baseAddresses>
+            <add baseAddress="<#=baseAddress#>/<#=service.Contract.Name#>"/>
+          </baseAddresses>
+        </host>
+<# }
+#>
+        <endpoint address=""
+                  binding="basicHttpBinding"
+                  contract="<#=service.Contract.FullName#>" />
+
+        <endpoint address="mex"
+                  binding="mexHttpBinding"
+                  contract="IMetadataExchange" />
+      </service>
+<#
+}    
+#>
+    </services>
+
+    <!--For debugging purposes set the includeExceptionDetailInFaults attribute to true-->
+    <behaviors>
+      <serviceBehaviors><#
+foreach(ClassImplementation service in layer.Classes)
+{#>      
+        <behavior name="<#=service.Name#>Behavior">
+          <serviceMetadata httpGetEnabled="True"/>
+          <serviceDebug includeExceptionDetailInFaults="False" />
+        </behavior><#
+}#>        
+      </serviceBehaviors>
+    </behaviors>
+
+  </system.serviceModel>
+
+</configuration>

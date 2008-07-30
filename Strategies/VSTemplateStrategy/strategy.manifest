@@ -1,0 +1,19 @@
+﻿<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!-- 
+name = strategy name
+id	 = unique id (can be a guid)
+path = the path is used to display the strategy in a tree view
+url  = url to the help
+-->
+	<StrategyBase xsi:type="GenericStrategy" name="$safeprojectname$" id="$guid1$" enabled="true" path="" url="">
+		<Description>your description</Description>
+		<!-- Name of the T4 (the extension is optional) in the Templates directory -->
+		<T4Template>T4 file name</T4Template>
+		<!-- Name of the generated output file. If omit it will be the current element name (with a .cs extension) -->
+		<OutputFileName></OutputFileName>
+		<!-- Type(s) of the element the template is applicable on -->
+		<TargetTypeNames>
+			<!--<string>DSLFactory.Candle.SystemModel.Layer</string>-->
+		</TargetTypeNames>
+	</StrategyBase>
+</manifest>

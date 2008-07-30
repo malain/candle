@@ -1,0 +1,43 @@
+﻿<#@ template debug="true" inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<# 
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate)
+{
+	return null;
+}
+if( Context.GenerationPass != GenerationPass.CodeGeneration)
+	return null;
+
+ServiceContract contract = this.CurrentElement;
+InterfaceLayer layer = contract.Layer;
+CandleModel model = Context.Model;
+#>
+<#=this.GeneratedHeader#>
+
+using System;
+
+namespace <#=layer.Namespace#> {
+
+<#=FormatComment("\t", contract.Comment)#>
+<# if( !String.IsNullOrEmpty(contract.CustomAttributes))
+{
+#>
+    [<#=contract.CustomAttributes#>]
+<# }
+#> 
+	public partial interface <#=contract.Name#> {
+<# foreach (Operation op in contract.Operations) {
+#>
+
+<#=FormatComment("\t\t", op.Comment)#>
+<# if( !String.IsNullOrEmpty(op.CustomAttributes))
+{
+#>
+    [<#=op.CustomAttributes#>]
+<# }
+#> 
+		<#=op.FullTypeName#> <#=op.Name#>( <#=op.CreateParametersDefinition()#> );
+<# } #>
+	}
+}

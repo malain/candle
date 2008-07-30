@@ -1,0 +1,324 @@
+<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ context processor="ContextProcessor" #>
+<#
+if( Context.GenerationPass == GenerationPass.ElementAdded)
+	return null;
+
+Layer layer = CurrentElement;
+if( layer == null )
+	return null;
+
+List<Guid> doublons = new List<Guid>();
+List<ClassUsesOperations> services = layer.GetServicesUsed(Context.Mode);
+
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate)
+{
+	layer.AddReference("System.Configuration", ArtifactType.AssemblyInGac);
+    // Création d'une clé par couche
+    foreach(AbstractLayer abstractLayer in layer.Component.Layers)
+    {
+        if( abstractLayer is Layer)
+        {
+			abstractLayer.AddXmlConfigurationContent(String.Concat("ServiceLocator", abstractLayer.Name),
+			String.Format("<configuration><appSettings><add key=\"{0}\" value=\"{1}\"/></appSettings></configuration>", abstractLayer.Name, abstractLayer.AssemblyName));
+        }
+    }
+	/*
+    // Recherche des couches implémenter
+	Layer lastLayer=null;
+
+	foreach (ClassUsesOperations service in services)
+	{		  
+		if( service.InternalTargetService == null )
+			continue;
+			
+		foreach (Implementation impl in Implementation.GetLinksToImplementations((ServiceContract)service.TargetService))
+		{
+			if (Context.Mode.CheckConfigurationMode(impl.ConfigurationMode))
+			{
+				Layer tmp = impl.ClassImplementation.Layer;
+				if( tmp == lastLayer) // Optimisation
+					continue;
+				tmp.AddXmlConfigurationContent(String.Concat("ServiceLocator", tmp.Name),
+				String.Format("<configuration><appSettings><add key=\"{0}\" value=\"{1}\"/></appSettings></configuration>", tmp.Name, tmp.AssemblyName));
+
+				lastLayer = tmp;
+			}
+	    }
+	}*/
+	return null;
+}
+
+#>
+<#=this.GeneratedHeader#>
+
+using System;
+using System.Reflection;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Configuration;
+
+namespace <#=layer.Namespace#> 
+{		
+    /// <summary>
+    /// Customizable class
+    /// </summary>
+    public sealed partial class ServiceLocator : ServiceLocatorBase
+    {
+        /// <summary>
+        /// Singleton
+        /// </summary>
+        public static ServiceLocator Instance
+        {
+            get { return (ServiceLocator)instance; }
+        }
+    }
+    
+    /// <summary>
+    /// Base class - Do not modify
+    /// </summary>
+	public class ServiceLocatorBase 
+	{
+        protected static ServiceLocator instance = new ServiceLocator();
+		        			
+		/// <summary>
+		/// Dynamic instance 
+		/// </summary>
+		protected T CreateInstance<T>(string key, string className)
+		{
+			string path = ConfigurationManager.AppSettings[key];
+            global::System.Diagnostics.Debug.Assert(path!=null, "ServiceLocator: " + key + " is not defined.");
+            Assembly asm = Assembly.Load(path);
+            object obj = asm.CreateInstance( className, true);
+            global::System.Diagnostics.Debug.Assert(obj!=null, "ServiceLocator: unable to load class " + className);
+            return (T)obj;
+		}
+        
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		public ServiceLocatorBase()
+		{
+<#
+//
+// Variables privées
+// Generation des champs contenant les instances statiques implémentées en tant que singleton
+//
+foreach (ClassUsesOperations service in services)
+{
+	if( !service.Singleton )
+		continue;		
+
+	if( service.ExternalTargetService != null )
+	{	
+	    string serviceName = service.Name;
+		if( String.IsNullOrEmpty(serviceName) )
+			serviceName = service.ExternalTargetService.ReferencedServiceContract.Name;
+#>
+		serviceInstance<#=serviceName#> = CreateProxyFor<#=serviceName#>();	
+<#
+	} else if( service.InternalTargetService != null)
+	{		
+		foreach (Implementation impl in Implementation.GetLinksToImplementations((ServiceContract)service.TargetService))
+		{
+			if (Context.Mode.CheckConfigurationMode(impl.ConfigurationMode))
+			{
+#>
+					serviceInstance<#=impl.ClassImplementation.Name#> = CreateInstanceOf<#=impl.ClassImplementation.Name#>("<#=impl.ClassImplementation.Layer.Name#>", "<#=impl.ClassImplementation.FullName#>" );
+<#			}
+		}
+	} else
+    {
+		string serviceName = service.Name;
+		if( String.IsNullOrEmpty(serviceName) )
+			serviceName = service.TargetService.Name;
+#>
+		serviceInstance<#=serviceName#> = CreateInstanceOf<#=service.InternalTargetClass.Name#>();	
+<#
+    }
+}
+#>
+        }
+			
+<#			
+//
+// Variables privées
+// Generation des champs contenants les instances statiques implémentées en tant que singleton
+//
+foreach (ClassUsesOperations service in services)
+{
+	if( !service.Singleton)
+		continue;
+		
+	if( service.ExternalTargetService != null )
+	{	
+		string serviceName = service.Name;
+		if( String.IsNullOrEmpty(serviceName) )
+			serviceName = service.ExternalTargetService.ReferencedServiceContract.Name;
+#>
+		private <#= service.ExternalTargetService.FullName#> serviceInstance<#=serviceName#>;
+<#
+	} else if( service.InternalTargetService != null)
+	{		
+		foreach (Implementation impl in Implementation.GetLinksToImplementations((ServiceContract)service.TargetService))
+		{
+    		if (Context.Mode.CheckConfigurationMode(impl.ConfigurationMode))
+			{
+#>
+		private <#= service.InternalTargetService.FullName#> serviceInstance<#=impl.ClassImplementation.Name#>;
+<#		    }
+		}
+	} else
+    {
+		string serviceName = service.Name;
+		if( String.IsNullOrEmpty(serviceName) )
+			serviceName = service.TargetService.Name;
+#>
+		private <#= service.InternalTargetClass.FullName#> serviceInstance<#=serviceName#>;
+<#
+	}
+}
+
+//
+// Création des instances
+//
+foreach (ClassUsesOperations service in services)
+{
+	if( service.ExternalTargetService != null )
+	    continue;
+			  
+    if( service.InternalTargetService != null )
+    {
+	    foreach (Implementation impl in Implementation.GetLinksToImplementations(service.InternalTargetService))
+	    {
+		    if (Context.Mode.CheckConfigurationMode(impl.ConfigurationMode))
+		    {
+#>
+		/// <summary>
+		/// Create instance of <#= service.InternalTargetService.FullName#>
+		/// </summary>		
+		protected virtual <#= service.InternalTargetService.FullName#> CreateInstanceOf<#=impl.ClassImplementation.Name#>(string key, string className)
+		{
+			return CreateInstance<<#= service.InternalTargetService.FullName#>>(key, className);
+		}
+		
+<#	        }
+	    }
+	}
+    else {
+#>
+		/// <summary>
+		/// Create instance of <#= service.InternalTargetClass.FullName#>
+		/// </summary>		
+		protected virtual <#= service.InternalTargetClass.FullName#> CreateInstanceOf<#=service.InternalTargetClass.Name#>(string key, string className)
+		{
+			return CreateInstance<<#= service.InternalTargetClass.FullName#>>(key, className);
+		}
+		
+<#
+    }
+}
+								 
+
+//
+// Propriétés
+//	
+foreach (ClassUsesOperations service in services)
+{	
+	if( service.ExternalTargetService != null )
+	{
+		string serviceName = service.Name;
+		if( String.IsNullOrEmpty(serviceName) )
+			serviceName = service.ExternalTargetService.ReferencedServiceContract.Name;		
+#>
+<#=FormatComment("\t\t", service.ExternalTargetService.Comment)#>
+		public static <#=service.ExternalTargetService.FullName#> <#=serviceName#>
+		{
+<#				
+		if( service.Singleton ) 
+		{
+#>
+			get { return instance.serviceInstance<#=serviceName#>;}
+<#		} else {
+#>
+			get { return instance.CreateProxyFor<#=serviceName#>();}
+<#
+		}
+#>			
+		}
+<#
+	}
+	else if( service.InternalTargetService != null)
+	{
+		foreach (Implementation impl in Implementation.GetLinksToImplementations((ServiceContract)service.TargetService))
+		{
+			if (Context.Mode.CheckConfigurationMode(impl.ConfigurationMode))
+			{
+			    string serviceName = service.Name;
+			    if( String.IsNullOrEmpty(serviceName))
+						serviceName = service.InternalTargetService.Name;
+#>
+<#=FormatComment("\t\t", service.InternalTargetService.Comment)#>
+		public static <#=service.InternalTargetService.FullName#> <#=serviceName#>
+		{
+<#			if( service.Singleton ) 
+			{
+#>
+			get { return instance.serviceInstance<#=impl.ClassImplementation.Name#>;}
+<#			} else {
+#>
+			get { return instance.CreateInstanceOf<#=impl.ClassImplementation.Name#>("<#=impl.ClassImplementation.Layer.Name#>", "<#=impl.ClassImplementation.FullName#>");}
+<#					
+			}
+#>
+		}
+<#		    }
+		}
+	}
+    else {
+#>
+<#=FormatComment("\t\t", service.InternalTargetClass.Comment)#>
+		public static <#=service.InternalTargetClass.FullName#> <#=service.InternalTargetClass.Name#>
+		{
+<#			if( service.Singleton ) 
+		    {
+		        string serviceName = service.Name;
+		        if( String.IsNullOrEmpty(serviceName) )
+			        serviceName = service.TargetService.Name;
+#>
+			get { return instance.serviceInstance<#=serviceName#>;}
+<#			} else {
+#>
+			get { return instance.CreateInstanceOf<#=service.InternalTargetClass.Name#>("<#=service.InternalTargetClass.Layer.Name#>", "<#=service.InternalTargetClass.FullName#>");}
+<#					
+			}
+#>
+        }
+<#
+	}
+}
+//		
+// Méthodes de création des classes proxy
+foreach (ClassUsesOperations service in services)
+{	
+	if (service.ExternalTargetService!= null) 
+	{
+		string serviceName = service.Name;
+		if( String.IsNullOrEmpty(serviceName) )
+			serviceName = service.ExternalTargetService.ReferencedServiceContract.Name;		
+#>
+		protected virtual <#= service.ExternalTargetService.FullName#> CreateProxyFor<#=serviceName#>()
+		{
+			throw new Exception("Create<#=serviceName#>Proxy not implemented");
+		}
+<#		
+	}
+}
+#>	
+	}
+}
+
+
+

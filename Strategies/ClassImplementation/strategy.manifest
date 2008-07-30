@@ -1,0 +1,5 @@
+﻿<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<StrategyBase xsi:type="ClassImplementationStrategy" name="Class Implementation" enabled="true">
+		<Description>Class implementation</Description>
+	</StrategyBase>
+</manifest>

@@ -1,0 +1,58 @@
+﻿<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<#@ assembly name="WCFStrategy"#>
+<#@ assembly name="System.ServiceModel"#>
+<#@ import namespace="DSLFactory.Candle.SystemModel.Strategies"#>
+<#@ import namespace="System.Collections.Generic" #>
+<# 
+Layer layer = this.CurrentElement;
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate)
+{
+	layer.AddReference("System.ServiceModel", ArtifactType.AssemblyInGac);
+	return null;
+}
+if( Context.GenerationPass != GenerationPass.CodeGeneration)
+	return null;
+
+#>
+<#=this.GeneratedHeader#>
+
+using System;
+using System.ServiceModel;
+
+namespace <#=layer.Namespace#> 
+{
+  public class Program
+ {
+  // Host the service within this EXE console application.
+  static void Main(string[] args)
+  {
+<#
+foreach(ClassImplementation service in layer.Classes)
+{    
+#>   // Create a ServiceHost for the CalculatorService type and Open the ServiceHost to create listeners and start listening for messages.
+   global::System.ServiceModel.ServiceHost serviceHost<#=service.Name#> = new global::System.ServiceModel.ServiceHost(typeof(<#=service.FullName#>));
+   serviceHost<#=service.Name#>.Open();
+<#
+}
+#>
+
+   // The service can now be accessed.
+   Console.WriteLine("The service is ready.");
+   Console.WriteLine("Press <ENTER> to terminate service.");
+   Console.WriteLine();
+   Console.ReadLine();
+
+ // Closes the services
+  <#
+foreach(ClassImplementation service in layer.Classes)
+{    
+#>
+   (serviceHost<#=service.Name#> as IDisposable).Dispose();
+<#
+}
+#>
+  }
+ }
+}

@@ -1,0 +1,7 @@
+﻿<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<StrategyBase xsi:type="ServiceFactoryStrategy" name="Static factory" id="StaticServiceFactory" enabled="true" path="" url="">
+		<Description>Inter layers service factory</Description>
+		<T4Template>StaticServiceFactory</T4Template>
+		<OutputFileName>ServiceFactory</OutputFileName>
+	</StrategyBase>
+</manifest>

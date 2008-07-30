@@ -1,0 +1,77 @@
+﻿<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<#@ assembly name="WCFStrategy"#>
+<#@ assembly name="System.ServiceModel"#>
+<#@ import namespace="DSLFactory.Candle.SystemModel.Strategies"#>
+<#@ import namespace="System.Collections.Generic" #>
+<# 
+ServiceContract contract = this.CurrentElement;
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate)
+{
+	contract.Layer.AddReference("System.ServiceModel", ArtifactType.AssemblyInGac);
+	return null;
+}
+if( Context.GenerationPass != GenerationPass.CodeGeneration)
+	return null;
+
+InterfaceLayer layer = contract.Layer;
+CandleModel model = Context.Model;
+List<string> operationNames = new List<string>();
+#>
+<#=this.GeneratedHeader#>
+
+using System;
+using System.ServiceModel;
+
+namespace <#=layer.Namespace#> {
+
+<#=FormatComment("\t", contract.Comment)#>
+<#
+ List<string> options = new List<string>();
+ 
+ if (!string.IsNullOrEmpty(WCFStrategy.ConfigurationNameProperty.GetValue(contract)))
+  options.Add("ConfigurationName=\""+WCFStrategy.ConfigurationNameProperty.GetValue(contract) + "\"");
+ if (!string.IsNullOrEmpty(layer.Namespace))
+  options.Add("Namespace=\""+layer.Namespace+"\"");
+ if (WCFStrategy.ProtectionLevelProperty.GetValue(contract).ToString() != "None")
+  options.Add("ProtectionLevel=ProtectionLevel."+WCFStrategy.ProtectionLevelProperty.GetValue(contract).ToString());
+ if (WCFStrategy.SessionModeProperty.GetValue(contract).ToString() != "Allowed")
+  options.Add("SessionMode=SessionMode."+WCFStrategy.SessionModeProperty.GetValue(contract).ToString());
+ if (WCFStrategy.CallbackContractProperty.GetValue(contract) != null)
+  options.Add("CallbackContract=typeof("+WCFStrategy.CallbackContractProperty.GetValue(contract)+")"); 
+#>
+	[ServiceContract(<#=String.Join(",", options.ToArray())#>)]
+	public partial interface <#=contract.Name#> {
+<# foreach (Operation op in contract.Operations) {
+#>
+
+<#=FormatComment("\t\t", op.Comment)#>
+<#
+     options = new List<string>();
+     string name = op.XmlName;
+     if( String.IsNullOrEmpty(name))
+        name = op.Name;
+     int nb = operationNames.FindAll(delegate(string s) {return s==name;}).Count;
+     if( nb > 0 )
+        options.Add("Name=\"" + name + nb.ToString() + "\"");
+     operationNames.Add( name );
+ 
+     if (WCFStrategy.AsyncPatternProperty.GetValue(op))
+      options.Add("AsyncPattern=true");
+     if (WCFStrategy.IsInitiatingProperty.GetValue(op))
+      options.Add("IsInitiating=true");
+     if (WCFStrategy.IsOneWayProperty.GetValue(op))
+      options.Add("IsOneWay=true");
+     if (WCFStrategy.IsTerminatingProperty.GetValue(op))
+      options.Add("IsTerminating=true");
+     if (WCFStrategy.ProtectionLevelProperty.GetValue(op).ToString() != "None")
+      options.Add("ProtectionLevel=ProtectionLevel."+WCFStrategy.ProtectionLevelProperty.GetValue(op).ToString());
+     if (!string.IsNullOrEmpty(WCFStrategy.ReplyActionProperty.GetValue(op)))
+      options.Add("ReplyAction=\""+WCFStrategy.ReplyActionProperty.GetValue(op)+"\"");
+#>
+		[OperationContract(<#=String.Join(",", options.ToArray())#>)]
+		<#=op.FullTypeName#> <#=op.Name#>( <#=op.CreateParameterList()#> );
+<# } #>
+	}
+}

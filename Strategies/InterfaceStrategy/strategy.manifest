@@ -1,0 +1,10 @@
+﻿<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<StrategyBase xsi:type="GenericStrategy" name="Interface Strategy" id="Interfaces" enabled="true" path="" url="">
+		<Description />
+		<T4Template>Interface</T4Template>
+		<OutputFileName></OutputFileName>
+		<TargetTypeNames>
+			<string>DSLFactory.Candle.SystemModel.ServiceContract</string>
+		</TargetTypeNames>
+	</StrategyBase>
+</manifest>

@@ -1,0 +1,5 @@
+﻿<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StrategyBase xsi:type="TFSStrategy" name="TeamSystemStrategy" id="TFS Strategy" enabled="true" path="" url="">
+    <Description>TFS strategy to create a label when the model is published with automatic check-in</Description>
+  </StrategyBase>
+</manifest>

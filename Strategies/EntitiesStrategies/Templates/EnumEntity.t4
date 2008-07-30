@@ -1,0 +1,66 @@
+﻿<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<# 
+Enumeration enumModel = CurrentElement;
+
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate)
+{
+	return null;
+}
+if( Context.GenerationPass != GenerationPass.CodeGeneration)
+	return null;
+DataLayer modelsLayer = Context.Model.SoftwareComponent.DataLayer;
+#>
+<#=this.GeneratedHeader#>
+
+using System;
+using System.Xml;
+using System.Xml.Serialization;
+
+namespace <#=enumModel.Package.Name#> 
+{
+<#=FormatComment("\t", enumModel.Comment)#>
+<# 
+   if (!String.IsNullOrEmpty(enumModel.XmlName) || !String.IsNullOrEmpty(modelsLayer.XmlNamespace) ) {
+		System.Text.StringBuilder sb = new System.Text.StringBuilder("[XmlRoot(");
+		bool flag = false;
+		if( !String.IsNullOrEmpty(enumModel.XmlName)) {
+			sb.Append("ElementName=\"");
+			sb.Append(enumModel.XmlName);
+			sb.Append("\"");
+			flag=true;
+		}
+		if( !String.IsNullOrEmpty(modelsLayer.XmlNamespace)) {
+			if( flag ) sb.Append(", ");
+			sb.Append("Namespace=\"");
+			sb.Append(modelsLayer.XmlNamespace);
+			sb.Append("\"");
+		}
+		sb.Append(")]");
+#>	
+	<#=sb.ToString()#>
+<#}
+    if( enumModel.IsFlag )
+    {
+#>
+    [Flags()]
+<#
+    } 
+#>
+	[Serializable()]
+	public enum <#=enumModel.Name#> 
+	{	
+<# for(int i=0;i < enumModel.Values.Count;i++) {
+		EnumValue prop = enumModel.Values[i];
+		if( !String.IsNullOrEmpty( prop.XmlName ) )
+{#>
+		[XmlAttribute(AttributeName="<#=prop.XmlName#>")] 
+<#}
+#>
+		<#=prop.Name#> <#if(prop.HasValue ) {#> = <#=prop.Value.ToString()#><# } if( i < enumModel.Values.Count-1) this.Write(",");#>
+		
+<#}
+#>
+    }
+}
