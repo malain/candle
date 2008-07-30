@@ -913,8 +913,8 @@
     <StartProgram>$(DevEnvDir)\devenv.exe</StartProgram>
     <StartAction>Program</StartAction>
     <StartArguments>/rootsuffix Exp /DesignTimeRun "..\..\..\Debugging\Debugging.sln"</StartArguments>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>md "..\..\..\..\bin"
+copy "$(TargetPath)" "..\..\..\..\bin\$(TargetFileName)"</PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Resources\ApplicationShapeIcon.bmp" />
