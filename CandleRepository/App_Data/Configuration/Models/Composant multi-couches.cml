@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel dslVersion="1.0.0.0" Id="1b307002-d18f-4974-bc91-17dbaab51ca8" name="?" version="1.0.0.0" xmlns="http://schemas.microsoft.com/dsltools/Candle">
+  <component>
+    <softwareComponent Id="99168e9d-36db-462a-9ba5-73c4b0c424b2" name="?" namespace="?">
+      <layers>
+        <interfaceLayer Id="e327bebd-2814-4fd0-b978-9800c613ad81" name="IDAO" assemblyName="?.IDAO" namespace="?" vSProjectName="IDAO" level="11" />
+        <dataAccessLayer Id="ec57fccd-2476-433c-8986-86ebc3265aa5" name="DAO" assemblyName="?.DAO" namespace="?" vSProjectName="DAO" startupProject="false" />
+        <interfaceLayer Id="269d8afe-47db-4ec0-803b-99f59f30e5b0" name="IServices" assemblyName="?.IServices" namespace="?" vSProjectName="IServices" level="51" />
+        <businessLayer Id="e1a06aed-2a0b-49f5-9429-98a147be2952" name="Services" assemblyName="?.Services" namespace="?" vSProjectName="Services" startupProject="false" />
+        <presentationLayer Id="6f65f06b-d49a-4cde-8cc2-5cfd7405bdb4" name="UILayer" assemblyName="?.UILayer" namespace="?" vSProjectName="UILayer" hostingContext="Standalone" startupProject="true" />
+        <modelsLayer Id="f5230c9e-836f-49fd-b0e2-b23fdf51451a" name="InfoLayer" assemblyName="?.InfoLayer" namespace="?" vSProjectName="InfoLayer" />
+        <interfaceLayer Id="3a0e3df1-3aad-4644-a2c8-4adcb952acb3" name="IUILayer" assemblyName="?.IUILayer" namespace="?" vSProjectName="IUILayer" level="101" />
+      </layers>
+      <layerPackages>
+        <layerPackage Id="6ddeb320-5132-4368-a662-0834a99ca8fc" name="Layer DAO" level="10">
+          <layers>
+            <dataAccessLayerMoniker Id="ec57fccd-2476-433c-8986-86ebc3265aa5" />
+          </layers>
+          <interfaceLayer>
+            <interfaceLayerMoniker Id="e327bebd-2814-4fd0-b978-9800c613ad81" />
+          </interfaceLayer>
+        </layerPackage>
+        <layerPackage Id="ee8d5f86-8386-4d7c-9442-5621db7b17bf" name="Layer Services" level="50">
+          <layers>
+            <businessLayerMoniker Id="e1a06aed-2a0b-49f5-9429-98a147be2952" />
+          </layers>
+          <interfaceLayer>
+            <interfaceLayerMoniker Id="269d8afe-47db-4ec0-803b-99f59f30e5b0" />
+          </interfaceLayer>
+        </layerPackage>
+        <layerPackage Id="ad0e39c8-c224-47bd-9ea2-49619767b05b" name="Layer UILayer" level="100">
+          <layers>
+            <presentationLayerMoniker Id="6f65f06b-d49a-4cde-8cc2-5cfd7405bdb4" />
+          </layers>
+          <interfaceLayer>
+            <interfaceLayerMoniker Id="3a0e3df1-3aad-4644-a2c8-4adcb952acb3" />
+          </interfaceLayer>
+        </layerPackage>
+      </layerPackages>
+    </softwareComponent>
+  </component>
+</componentModel>

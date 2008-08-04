@@ -1,0 +1,301 @@
+body {
+}
+
+/* ************************************************************************************************ */
+/* ************************************************************************************************ */
+.Item
+{
+	padding-left: 5px;
+}
+
+.ItemDomain
+{
+	padding-bottom: 5px;
+	padding-top: 10px;
+	border-bottom: thin solid;
+	color: gray;
+}
+
+.ItemHeader
+{
+	padding-left: 20px;
+	color: #1975d7;
+	margin-top: 5px;
+}
+
+.ItemHeaderName
+{
+	text-align: left;
+	font-weight: bold;
+}
+
+.ItemHeaderVersion
+{
+	margin-left: 30px;
+}
+
+.ItemDescription
+{
+	font-style: italic;
+	margin-left: 50px;
+	padding-bottom: 10px;
+}
+
+/* ************************************************************************************************ */
+/* ************************************************************************************************ */
+.ContextMenuPanel 
+{
+	border: 1px solid #868686;
+	z-index: 1000;
+	background: url(images/menu-bg.gif) repeat-y 0 0 #FAFAFA;
+	cursor: default;
+	padding: 1px 1px 0px 1px;
+	font-size: 11px;
+}
+
+.ContextMenuBreak
+{
+	margin:1px 1px 1px 32px;
+	padding:0;
+	height:1px;
+	overflow:hidden;
+	display:block;
+	border-top: 1px solid #C5C5C5;	
+}
+
+a.ContextMenuItem
+{
+	margin: 1px 0 1px 0;
+	display: block;
+	color: #003399;
+	text-decoration: none;
+	cursor: pointer;	
+	padding: 4px 19px 4px 33px;
+	white-space: nowrap;
+}
+
+a.ContextMenuItem-Selected
+{
+	font-weight: bold;
+}
+
+a.ContextMenuItem:hover
+{
+	background-color: #FFE6A0;
+	color: #003399;
+	border: 1px solid #D2B47A;
+	padding: 3px 18px 3px 32px;
+}
+
+/* ************************************************************************************************ */
+/* ************************************************************************************************ */
+.DetailsContainer
+{
+	height:500px;
+	width:90%;
+}
+
+.DetailsDependencies
+{
+	height:100%;
+	width:90%;
+	overflow:auto;
+}
+
+/* ************************************************************************************************ */
+/* ************************************************************************************************ */
+.Home_Zone1
+{
+	display: block;
+	width: 100%;
+}
+
+.Home_Zone2
+{	
+	position:absolute;
+	width: 50%;
+}
+
+.Home_Zone3
+{
+	position:absolute;
+	left:50%;
+	width:50%;
+}
+
+/* ************************************************************************************************ */
+/* ************************************************************************************************ */
+.CloudHeader
+{
+	border-right: navy 1px solid;
+	border-top: navy 1px solid;
+	border-left: navy 1px solid;
+	padding-top: 2px;
+	font-weight: bold;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	color: navy;
+	text-align: left;
+	filter: progid:DXImageTransform.Microsoft.Alpha( Opacity=100, FinishOpacity=0, Style=0, StartX=0,  FinishX=100, StartY=0, FinishY=100);
+	background-color: #99ccff;
+}
+
+.CloudBox
+{
+	height:80px;
+    width:300px;
+    text-align:center;
+    border:solid 1px navy;
+    background-color: white;
+    	color: #1975d7;
+}
+
+.CloudBox a
+{
+	text-decoration:none;
+		color: #1975d7;
+}	
+
+/* ************************************************************************************************ */
+/* Home																								*/
+/* ************************************************************************************************ */
+.HeaderPart
+{
+	height:80px;
+	width:100%;
+	display:block;
+	font-weight: bold; 
+	font-size: large; 
+	filter:progid:DXImageTransform.Microsoft.Alpha( Opacity=100, FinishOpacity=0, Style=1, StartX=0,  FinishX=100, StartY=0, FinishY=100); 
+	background-image: none; 
+	color: white; 
+	background-color: #3366cc;
+}
+
+.MenuPart
+{
+	padding-top:5px;
+	padding-left:2px;
+	position:absolute;
+	width:160px;
+}
+
+.Menu
+{
+}
+
+.BodyPart
+{
+	padding-top:5px;
+	position:absolute;
+	margin-left:163px;
+}
+
+/* ************************************************************************************************ */
+/* Contracts																						*/
+/* ************************************************************************************************ */
+.Contract
+{
+	font-family: verdana;
+	padding-bottom:20px;
+}
+
+.ContractHeader
+{
+	font-weight: bold;
+	font-size: medium;
+	padding-bottom: 10px;
+	padding-top: 5px;
+}
+.ContractDescription
+{
+	font-size: small;
+	color: gray;
+	font-style: italic;
+	text-align: left;
+	padding-bottom: 20px;
+	text-indent: 1em;
+}
+
+.ContractOperation
+{
+	text-indent: 1em;
+	margin-bottom: 30px;
+}
+
+.ContractOperationHeader
+{
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.ContractOperationDesc
+{
+	font-size: small;
+	color: gray;
+	font-style: italic;
+	text-align: left;
+	padding-bottom: 10px;
+	text-indent: 1em;
+}
+
+.ContractArguments
+{
+	font-size: smaller;
+		background-color:White;
+}
+
+.ContractArgumentsHeader
+{
+	font-weight: bold;
+	color: #4A3C8C;
+	background-color: #E7E7FF;
+	padding: 4px;
+}
+
+.ContractArgumentsHeaderType
+{
+	margin:0px;
+	float:left;
+	width: 300px;
+}
+
+.ContractArgumentsHeaderName
+{
+	float:left;
+	width: 308px;
+}
+
+.ContractArgumentsHeaderDesc
+{
+	display:block;
+}
+
+.ContractArgumentItem
+{
+	padding-top:4px;
+	padding-bottom:4px;
+	background-color: #F7F7F7;
+	height:20px;
+}
+
+.ContractArgumentItemType
+{
+	float:left;
+	width: 300px;
+	padding-left:10px;
+}
+
+.ContractArgumentItemName
+{
+	float:left;
+	width: 308px;
+}
+
+.ContractArgumentItemDesc
+{
+	margin-left:608px;
+	display: block;
+	vertical-align: top;
+	text-align: left;
+}

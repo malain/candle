@@ -1,0 +1,50 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using DSLFactory.Candle.SystemModel.Repository;
+using System.Collections.Generic;
+using DSLFactory.Candle.SystemModel.Repository.Providers;
+using DSLFactory.Candle.SystemModel;
+using DSLFactory.Candle.SystemModel.Configuration;
+
+/// <summary>
+/// Summary description for MetadataManager
+/// </summary>
+public class MetadataManager
+{
+    private IRepositoryProvider provider;
+
+    public MetadataManager()
+    {
+        provider = new FileRepositoryProvider(CandleSettings.BaseDirectory, RepositoryManager.GetFolderPath(RepositoryCategory.Models), false);
+        HttpContext.Current.Trace.Write(provider.Name);
+        HttpContext.Current.Trace.Write(RepositoryManager.GetFolderPath(RepositoryCategory.Models));
+    }
+
+    public ComponentModelMetadata GetMetadata(string id, string version)
+    {
+        Guid modelId = new Guid(id);
+        Version v = new Version(version);
+        VersionInfo vi = new VersionInfo(v);
+        return provider.GetModelMetadata(modelId, vi);
+    }
+
+    public List<ComponentModelMetadata> GetAllMetadata()
+    {
+        List<ComponentModelMetadata> list = provider.GetAllMetadata();
+        return list;
+    }
+
+    public List<ComponentModelMetadata> GetAllSortedMetadata()
+    {
+        List<ComponentModelMetadata> list = GetAllMetadata();
+        list.Sort(delegate(ComponentModelMetadata a, ComponentModelMetadata b) { return String.Concat(a.Path, a.Name).CompareTo(String.Concat(b.Path, b.Name)); });
+        return list;
+    }
+}

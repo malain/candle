@@ -1,0 +1,79 @@
+﻿<#@ template debug="true" inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+<#@ assembly name="System.Xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml" #>
+<# 
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate)
+{
+	return null;
+}
+Layer layer = this.CurrentElement;
+#>
+<?xml version="1.0"?>
+<!-- 
+    Note: As an alternative to hand editing this file you can use the 
+    web admin tool to configure settings for your application. Use
+    the Website->Asp.Net Configuration option in Visual Studio.
+    A full list of settings and comments can be found in 
+    machine.config.comments usually located in 
+    \Windows\Microsoft.Net\Framework\v2.x\Config 
+-->
+<configuration>
+	<configSections>
+<#
+	XmlDocument xdoc = layer.Component.SettingValuesAsXml;
+	XmlDocument declaredSections = layer.Component.DeclaredSections;
+	XmlNode configSection = declaredSections.SelectSingleNode("configuration/configSections");
+#>
+		<#= configSection != null ? configSection.InnerXml : String.Empty #>
+		<section name="nhibernate" type="System.Configuration.NameValueSectionHandler, System, Version=1.0.1.0,Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+		<section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net"/>
+		<section name="ASFSettings" type="ASF.Systemes.Configuration.ASFConfiguration, ASF.Systemes.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=d7c9ee5f1772496e"/>
+	</configSections>
+	<ASFSettings>
+		<Environnement>
+			<add name="Developpement">
+				<settings>
+					<add name="SuiviDesOuvrages" value="Data Source=vedp03;Persist Security Info=True;User ID=dev$goa;Password=goa"></add>
+				</settings>
+			</add>
+		</Environnement>
+	</ASFSettings>
+	<appSettings>
+<#  foreach(XmlNode node in xdoc.SelectNodes("configuration/appSettings/add"))
+	{#>
+		<#=node.OuterXml#>
+<#  }#>	
+	</appSettings>
+	<nhibernate>
+<#  foreach(XmlNode node in xdoc.SelectNodes("configuration/nhibernate/add"))
+	{#>
+		<#=node.OuterXml#>
+<#  }#>
+		<add key="hibernate.show_sql" value="true"/>
+		<add key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider"/>
+		<add key="hibernate.dialect" value="NHibernate.Dialect.Oracle9Dialect"/>
+		<add key="hibernate.connection.driver_class" value="NHibernate.Driver.OracleDataClientDriver"/>
+		<add key="hibernate.connection.connection_string" value="Data Source=vedp03;Persist Security Info=True;User ID=dev$goa;Password=goa;"/>
+		<add key="hibernate.connection.isolation" value="ReadCommitted"/>
+	</nhibernate>
+	<connectionStrings/>
+	<system.web>
+		<httpModules>
+			<add name="NHibernateSessionModule" type="ASF.Systemes.Data.NHibernate.NHibernateSessionModule, ASF.Patrimoine.SuiviDesOuvrages.Utils"/>
+		</httpModules>
+		<compilation debug="true">
+			<assemblies>
+			</assemblies>
+		</compilation>
+		<authentication mode="Windows"/>
+		<!--
+        <customErrors mode="RemoteOnly" defaultRedirect="GenericErrorPage.htm">
+            <error statusCode="403" redirect="NoAccess.htm" />
+            <error statusCode="404" redirect="FileNotFound.htm" />
+        </customErrors>
+        -->
+	</system.web>
+</configuration>

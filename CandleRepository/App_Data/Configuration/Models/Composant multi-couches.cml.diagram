@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModelDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.5499999999999989" isCompleteView="false" name="Project2">
+  <componentModelMoniker Id="1b307002-d18f-4974-bc91-17dbaab51ca8" />
+  <nestedChildShapes>
+    <softwareComponentShape Id="a728cec4-a47d-4200-8a76-630913831c01" absoluteBounds="2, 0.5, 7, 8.7999999999999989">
+      <softwareComponentMoniker Id="99168e9d-36db-462a-9ba5-73c4b0c424b2" />
+      <nestedChildShapes>
+        <layerPackageShape Id="bb114c00-3c5f-41a4-aaee-82d10311ea42" absoluteBounds="2.1, 7.4499999999999993, 6.8000000000000007, 1.5">
+          <layerPackageMoniker Id="6ddeb320-5132-4368-a662-0834a99ca8fc" />
+          <nestedChildShapes>
+            <dataAccessLayerShape Id="de5ea943-5d10-4127-808a-0a487ed9e0e9" absoluteBounds="2.35, 7.6999999999999993, 6.2000000000000011, 1">
+              <dataAccessLayerMoniker Id="ec57fccd-2476-433c-8986-86ebc3265aa5" />
+            </dataAccessLayerShape>
+          </nestedChildShapes>
+        </layerPackageShape>
+        <interfaceLayerShape Id="4cc78315-5ab9-4f00-bca2-2ab99a191c97" absoluteBounds="2.1, 6.35, 6.75, 1">
+          <interfaceLayerMoniker Id="e327bebd-2814-4fd0-b978-9800c613ad81" />
+        </interfaceLayerShape>
+        <layerPackageShape Id="4676c101-ddb1-49e6-8b69-389d955a274b" absoluteBounds="2.1, 4.75, 6.8000000000000007, 1.5">
+          <layerPackageMoniker Id="ee8d5f86-8386-4d7c-9442-5621db7b17bf" />
+          <nestedChildShapes>
+            <businessLayerShape Id="64066fef-b3e4-4fb5-b5e4-52f6a6397b24" absoluteBounds="2.35, 5, 6.25, 1">
+              <businessLayerMoniker Id="e1a06aed-2a0b-49f5-9429-98a147be2952" />
+            </businessLayerShape>
+          </nestedChildShapes>
+        </layerPackageShape>
+        <interfaceLayerShape Id="22502b92-ff45-4f4c-8c43-0fe013d73581" absoluteBounds="2.1, 3.65, 6.75, 1">
+          <interfaceLayerMoniker Id="269d8afe-47db-4ec0-803b-99f59f30e5b0" />
+        </interfaceLayerShape>
+        <layerPackageShape Id="58c1ea86-43dd-40a0-b6b6-8c3bfe057daa" absoluteBounds="2.1, 2.05, 6.8000000000000007, 1.5">
+          <layerPackageMoniker Id="ad0e39c8-c224-47bd-9ea2-49619767b05b" />
+          <nestedChildShapes>
+            <presentationLayerShape Id="cc9440d7-96c9-459d-9647-4b8a6874947f" absoluteBounds="2.35, 2.3, 6.25, 1">
+              <presentationLayerMoniker Id="6f65f06b-d49a-4cde-8cc2-5cfd7405bdb4" />
+            </presentationLayerShape>
+          </nestedChildShapes>
+        </layerPackageShape>
+        <interfaceLayerShape Id="85ef7d5c-1a61-407d-a8c6-05554ec4e65e" absoluteBounds="2.1, 0.95, 6.75, 1">
+          <interfaceLayerMoniker Id="3a0e3df1-3aad-4644-a2c8-4adcb952acb3" />
+        </interfaceLayerShape>
+      </nestedChildShapes>
+    </softwareComponentShape>
+    <modelsLayerShape Id="3297a159-29ca-4683-8e49-374d8e7779d0" absoluteBounds="0.5, 0.5, 1, 4">
+      <modelsLayerMoniker Id="f5230c9e-836f-49fd-b0e2-b23fdf51451a" />
+    </modelsLayerShape>
+  </nestedChildShapes>
+</componentModelDiagram>

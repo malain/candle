@@ -1,0 +1,12 @@
+obj\Release\ResolveAssemblyReference.cache
+bin\Microsoft.VisualStudio.Modeling.Diagrams.GraphObject.dll
+bin\Microsoft.VisualStudio.Modeling.Sdk.Diagrams.GraphObject.dll
+obj\Debug\ResolveAssemblyReference.cache
+bin\Candle.Repository.dll
+bin\Candle.Repository.pdb
+obj\Debug\Candle.Repository.dll
+obj\Debug\Candle.Repository.pdb
+bin\DSLFactory.Candle.SystemModel.Dsl.dll
+bin\DSLFactory.Candle.SystemModel.Dsl.pdb
+obj\Release\Candle.Repository.dll
+obj\Release\Candle.Repository.pdb

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <language defaultProjectTemplate="csharp/ClassLibrary.zip" defaultWebProjectTemplate="Web/EmptyWeb.zip" defaultExtension=".cs" defaultName="CSharp" />
+  <Packages>
+    <StrategyPackage name="ClassImplementation.zip" />
+    <StrategyPackage name="InterfaceStrategy.zip" />
+    <StrategyPackage name="NHibernateStrategies.zip" />
+    <StrategyPackage name="ServiceFactory.zip" />
+    <StrategyPackage name="WCFStrategy.zip" />
+  </Packages>
+  <strategyTypes>
+    <add type="DSLFactory.Candle.SystemModel.Strategies.ClassImplementationStrategy,DSLFactory.Candle.Strategies.ClassImplementation" package="ClassImplementation.zip" />
+    <add type="DSLFactory.Candle.SystemModel.Strategies.GenericStrategy" package="InterfaceStrategy.zip" />
+    <add type="DSLFactory.Candle.SystemModel.Strategies.NHibernateStrategy,DSLFactory.Candle.Strategies.NHibernateStrategy" package="NHibernateStrategies.zip" />
+    <add type="DSLFactory.Candle.SystemModel.Strategies.StrategyProjectGenerator" />
+    <add type="DSLFactory.Candle.SystemModel.Strategies.ConfigurationFileStrategy" />
+    <add type="DSLFactory.Candle.SystemModel.Strategies.WCFStrategy,WCFStrategy" package="WCFStrategy.zip" />
+    <add type="DSLFactory.Candle.SystemModel.Strategies.BaseNamingStrategy" />
+  </strategyTypes>
+  <strategies xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <StrategyBase xsi:type="ClassImplementationStrategy" package="ClassImplementation.zip" modelOwner="globals" name="Class Implementation" id="6D906E29-D887-4e3f-B297-F1D09B41C908" group="Standard" path="" url="">
+      <Template>ClassImplementation</Template>
+      <CustomCodeFilePattern>[code]/code/{0}</CustomCodeFilePattern>
+      <CustomCodeTemplate>CustomClassImplementation</CustomCodeTemplate>
+    </StrategyBase>
+    <StrategyBase xsi:type="GenericStrategy" package="InterfaceStrategy.zip" modelOwner="globals" name="Interface Strategy" id="Interfaces" group="" path="" url="">
+      <T4Template>Interface</T4Template>
+      <OutputFileName />
+      <TargetTypeNames>
+        <string>DSLFactory.Candle.SystemModel.ServiceContract</string>
+      </TargetTypeNames>
+    </StrategyBase>
+    <StrategyBase xsi:type="NHibernateStrategy" package="NHibernateStrategies.zip" modelOwner="globals" name="NHibernate" id="0811B1D6-7055-43a3-AA51-E95732F4E8C5" group="" path="" url="">
+      <DAOTemplate>NHibernateDALStandAlone</DAOTemplate>
+      <EntityTemplate>NHibernateEntityEx</EntityTemplate>
+    </StrategyBase>
+    <StrategyBase xsi:type="GenericStrategy" package="ServiceFactory.zip" modelOwner="globals" name="Static factory" id="StaticServiceFactory" group="" path="" url="">
+      <T4Template>StaticServiceFactory</T4Template>
+      <OutputFileName>ServiceFactory</OutputFileName>
+      <TargetTypeNames>
+        <string>DSLFactory.Candle.SystemModel.Layer</string>
+      </TargetTypeNames>
+    </StrategyBase>
+    <StrategyBase xsi:type="StrategyProjectGenerator" modelOwner="globals" name="StrategyProjectGenerator" id="96290682-B3D7-4bdd-A3F3-15EA0E08AFE2" group="" path="" url="" />
+    <StrategyBase xsi:type="ConfigurationFileStrategy" modelOwner="globals" name="ConfigurationFileStrategy" id="{AA927CB4-92B6-4a7c-B36B-1D66BF59B67E}" group="" path="" url="">
+      <TemplateFormatName>{0}.config</TemplateFormatName>
+      <ConfigFolderName>Config</ConfigFolderName>
+    </StrategyBase>
+    <StrategyBase xsi:type="WCFStrategy" package="WCFStrategy.zip" modelOwner="globals" name="WCFStrategy" id="WCFStrategy" group="" path="" url="">
+      <HostingTemplate>WCFHosting</HostingTemplate>
+      <SvcTemplate>WCFWeb</SvcTemplate>
+      <ConfigTemplate>WCFWebConfig</ConfigTemplate>
+      <ContractTemplate>WCFServiceContract</ContractTemplate>
+    </StrategyBase>
+  </strategies>
+  <NamingStrategy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" collectionAsArray="false">
+    <DefaultGeneratedCodeFilePattern>[code]/GeneratedCode/[sn]/{0}</DefaultGeneratedCodeFilePattern>
+    <LayerNamingRules>
+      <LayerNamingRule type="InterfaceLayer" defaultName="Interfaces" formatString="{1}I{3}" assemblyFormatString="{2}" projectFolderFormatString="Couche {0}" elementFormatString="I{0}" />
+      <LayerNamingRule type="DataAccessLayer" defaultName="DALayer" formatString="{1}{0}" assemblyFormatString="{2}" projectFolderFormatString="Couche {0}" elementFormatString="{0}DAO" />
+      <LayerNamingRule type="BusinessLayer" defaultName="ServiceLayer" formatString="{1}{0}" assemblyFormatString="{2}" projectFolderFormatString="Couche {0}" elementFormatString="{0}Service" />
+      <LayerNamingRule type="PresentationLayer" defaultName="UILayer" formatString="{1}{0}" assemblyFormatString="{2}" projectFolderFormatString="Couche {0}" elementFormatString="{0}UI" />
+      <LayerNamingRule type="ModelsLayer" defaultName="InfoLayer" formatString="{1}{0}" assemblyFormatString="{2}" projectFolderFormatString="Couche {0}" elementFormatString="{0}Info" />
+      <LayerNamingRule type="UIWorkflowLayer" defaultName="UILayer" formatString="{1}{0}" assemblyFormatString="{2}" projectFolderFormatString="Couche {0}" elementFormatString="{0}" />
+    </LayerNamingRules>
+    <DefaultProjectFolderFormat>Couche {0}</DefaultProjectFolderFormat>
+    <ColumnNameFormat>{0}_{1}</ColumnNameFormat>
+    <PrivateVariableNameFormat>_{0}</PrivateVariableNameFormat>
+    <DefaultNamespace />
+  </NamingStrategy>
+</configuration>

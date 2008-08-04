@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Web;
+using DSLFactory.Candle.SystemModel.Repository;
+using DSLFactory.Candle.SystemModel.Configuration;
+
+
+///// <summary>
+///// Summary description for FileHelper
+///// </summary>
+//public sealed class FileHelper
+//{
+//    private static string _repositoryPath;
+
+//    public FileHelper()
+//    {
+//    }
+
+//    public static string MakeRelative( RepositoryCategory category, string physicalPath )
+//    {
+//        string path = ResolveFolderPath( category );
+//        if( physicalPath.StartsWith( path, StringComparison.CurrentCultureIgnoreCase ) )
+//            return physicalPath.Substring( path.Length+1 );
+//        return physicalPath;
+//    }
+
+//    public static string RepositoryRootPath
+//    {
+//        get
+//        {
+//            if( _repositoryPath == null )
+//            {
+//                _repositoryPath = ConfigurationManager.AppSettings["repositoryPath"];
+//                if( String.IsNullOrEmpty( _repositoryPath ) )
+//                    _repositoryPath = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, "App_Data" );
+//            }
+//            return _repositoryPath;
+//        }
+//    }
+
+//    public static string ResolveFolderPath( RepositoryCategory category )
+//    {
+//        string key = String.Format("repositoryPath_{0}", category.ToString());
+//        string tmp = ConfigurationManager.AppSettings[key];
+//        if( !String.IsNullOrEmpty( tmp ) )
+//            return tmp;
+//        return Path.Combine( RepositoryRootPath, category.ToString() );
+//    }
+
+//    public static string ResolvePath( RepositoryCategory category, string relativePath )
+//    {
+//        return Path.Combine( ResolveFolderPath(category), relativePath );
+//    }
+//}

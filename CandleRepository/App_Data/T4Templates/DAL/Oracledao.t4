@@ -1,0 +1,334 @@
+<#@ template inherits="DSLFactory.Candle.SystemModel.CodeGeneration.StrategyTextTransformation" #>
+<#@ context processor="ContextProcessor" #>
+
+<#@ import namespace="System.Text" #>
+<# 
+ClassImplementation port = CurrentElement;
+if( port == null || port.Contract == null)
+	return null;
+
+Layer dal = port.Layer as DataAccessLayer;
+if( dal == null )
+  return null;
+  
+Entity entity = port.AssociatedEntity;
+ServiceContract contract = port.Contract;
+	
+// Metamodel updates
+if( Context.GenerationPass == GenerationPass.ElementAdded )
+{
+	if( entity == null  || contract == null)
+		return null;
+			
+	// Création des méthodes de l'interface
+		
+	// ReadAll
+	Operation op = contract.DeclareOperation( "ReadAll", entity.FullName, true, "");	
+	
+  if( entity.PrimaryKeys.Count > 0 )
+  {    
+	// Read
+      op = contract.DeclareOperation("Read", entity.FullName, false, "");
+      foreach(Property prop in entity.PrimaryKeys)
+      {
+				op.DeclareArgument(	prop );	
+      }        
+      op = contract.DeclareOperation("Delete", "void", false, "");
+      op.DeclareArgument(entity);
+      op = contract.DeclareOperation("Update", "void", false, "");
+      op.DeclareArgument(entity);
+  }
+
+	return null;
+}
+if( Context.GenerationPass == GenerationPass.MetaModelUpdate )
+{
+	port.Layer.AddReferenceToService("FrameworkASF", new VersionInfo(2,2,0,0), "ASF.Systemes");
+	return null;
+}
+
+#>
+<#=this.GeneratedHeader#>
+
+using System.Data.OracleClient;
+using System.Collections.Generic;
+using System.Data;
+
+namespace <#=dal.Namespace#>
+{
+	public abstract partial class <#=port.Name#>Base : <#=port.Contract.FullName#>
+	{
+        /// <summary>
+        /// Chaine de connexion
+        /// </summary>
+        protected string ConnectionString
+        {
+            get { return ASF.Systemes.ServiceLocator.GetConfigurationService().ConnexionString; }
+        }
+
+<#
+if( entity == null )
+{
+#>
+			// No associated entity defined
+<#
+}
+else
+{
+#>			
+        /// <summary>
+        /// 
+        /// </summary>
+		protected <#=entity.FullName#> MapFromSQL(IDataReader reader)
+        {
+			int pos;
+            <#=entity.FullName#> product = new <#=entity.FullName#>();
+<#
+foreach (Property prop in entity.Properties) 
+{
+#>
+			pos = reader.GetOrdinal("<#=prop.ColumnName#>");
+<#	if( prop.Nullable) {
+#>
+			if( !reader.IsDBNull(pos))            
+<#	}
+#>			product.<#=prop.Name#> = reader.<#=GetReaderMethod(prop.Type)#>(pos);
+<#
+}
+#>
+            return product;
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        protected virtual void CreateSQLParameters(OracleCommand command, <#=entity.FullName#> product)
+        {
+            OracleParameter parameter;
+<#
+foreach (Property prop in entity.Properties) 
+{
+#>
+            parameter = new OracleParameter();
+            parameter.ParameterName = "<#=prop.ColumnName#>";
+            parameter.Value = product.<#=prop.Name#>;
+            command.Parameters.Add(parameter);
+<#
+}
+#>
+        }
+<#
+		if(contract != null && contract.OperationExists("ReadAll")) {
+#>        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual List<<#=entity.FullName#>> ReadAll()
+        {
+            List<<#=entity.FullName#>> results = new List<<#=entity.FullName#>>();
+
+            using (OracleConnection connection = new OracleConnection(ConnectionString))
+            {
+                OracleCommand command = connection.CreateCommand();
+<#if( entity.DatabaseType == DatabaseType.Table ) {
+#>                
+                command.CommandText = "SELECT * from <#=entity.TableName#>";
+                command.CommandType = CommandType.Text;
+<#} else {
+#>
+                command.CommandText = "<#=entity.TableName#>";
+                command.CommandType = CommandType.StoredProcedure;
+<#}
+#>
+                connection.Open();
+                OracleDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    results.Add(MapFromSQL(reader));
+                }
+            }
+
+            return results;
+        }
+        
+<#} // end Readall exists
+if( entity.PrimaryKeys.Count > 0 )
+{
+  TypeDefinition[] primaryKeysDefinition = new TypeDefinition[entity.PrimaryKeys.Count];
+	StringBuilder args = new StringBuilder();
+	for(int i=0;i<entity.PrimaryKeys.Count;i++)
+	{
+		Property key = entity.PrimaryKeys[i];
+		args.Append(key.Type);
+		args.Append(" ");
+		args.Append( StrategyManager.GetInstance(clazz.Store).NamingStrategy.ToCamelCasing(key.Name));
+		if( i<entity.PrimaryKeys.Count-1)
+			args.Append(", ");
+		primaryKeysDefinition[i] = new TypeDefinition(key.Type, key.IsCollection);
+	}
+
+	if(contract != null && contract.OperationExists("Read", primaryKeysDefinition)) {
+#>
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual <#=entity.FullName#> Read( <#=args.ToString()#> )
+        {
+            using (OracleConnection connection = new OracleConnection(ConnectionString))
+            {
+                OracleCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * from <#=entity.TableName#> where " +
+<#
+	for(int i=0;i<entity.PrimaryKeys.Count;i++)
+	{ 
+		Property key = entity.PrimaryKeys[i];
+#>
+				"<#=key.ColumnName#> = @<#=key.Name#> <#=(i<entity.PrimaryKeys.Count-1?" and \" +" : "\";")#>
+<#
+	}
+#>				
+                command.CommandType = CommandType.Text;
+				OracleParameter parameter;
+<#
+	foreach(Property key in entity.PrimaryKeys)
+	{
+#>
+                parameter = new OracleParameter();
+                parameter.ParameterName = "@<#=key.Name#>";
+                parameter.Value = <#=StrategyManager.GetInstance(clazz.Store).NamingStrategy.ToCamelCasing(key.Name)#>;
+                command.Parameters.Add(parameter);
+<#
+	}
+#>
+
+                connection.Open();
+                OracleDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return MapFromSQL(reader);
+                }
+            }
+            return null;
+        }
+<#}
+if(contract != null && contract.OperationExists("Update", new TypeDefinition(entity.FullName))) {
+#>
+        /// <summary>
+        /// 
+        /// </summary>        
+        public virtual void Update(<#=entity.FullName#> value)
+        {
+            using (OracleConnection  connection = new OracleConnection(ConnectionString))
+            {
+                OracleCommand command = connection.CreateCommand();
+                command.CommandText = "UPDATE <#=entity.TableName#> SET " +
+<#
+	for(int i=0;i<entity.Properties.Count;i++)
+	{ 
+		Property prop = entity.Properties[i];
+		if( !prop.IsPrimaryKey )
+		{
+#>
+				"<#=prop.ColumnName#> = @<#=prop.Name#> <#=(i<entity.Properties.Count-1?", \"" : "\"")#> +
+<#
+		}
+	}
+#>	
+                    "where " +
+<#
+	for(int i=0;i<entity.PrimaryKeys.Count;i++)
+	{ 
+		Property key = entity.PrimaryKeys[i];
+#>
+				"<#=key.ColumnName#> = @<#=key.Name#> <#=(i<entity.PrimaryKeys.Count-1?" and \" +" : "\";")#>
+<#
+	}
+#>	                    
+                command.CommandType = CommandType.Text;
+
+                CreateSQLParameters(command, value);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+<#}
+if(contract != null && contract.OperationExists("Delete", new TypeDefinition(entity.FullName))) {
+#>
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual void Delete(<#=entity.FullName#> value)
+        {
+            using (OracleConnection  connection = new OracleConnection(ConnectionString))
+            {
+                OracleCommand command = connection.CreateCommand();
+                command.CommandText = "DELETE from <#=entity.TableName#> where " +
+<#
+	for(int i=0;i<entity.PrimaryKeys.Count;i++)
+	{ 
+		Property key = entity.PrimaryKeys[i];
+#>
+				"<#=key.ColumnName#> = @<#=key.Name#> <#=(i<entity.PrimaryKeys.Count-1?" and \" +" : "\";")#>
+<#
+	}
+#>	                    
+                command.CommandType = CommandType.Text;
+
+                CreateSQLParameters(command, value);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+<#
+}
+}
+}
+#>        
+	}
+}
+
+<#+
+private string GetReaderMethod(string name)
+{
+	switch(name)
+	{
+		case "string":
+		case "System.String":
+			return "GetString";
+		case "System.Int16":
+			return "GetInt16";
+		case "int":
+		case "System.Int32":
+			return "GetInt32";
+		case "System.Int64":
+			return "GetInt64";
+		case "System.DateTime":
+			return "GetDateTime";
+		case "bool":
+		case "System.Boolean":
+			return "GetBoolean";
+		case "double":
+		case "System.Double":
+			return "GetDouble";
+		case "long":
+		case "System.Long":
+			return "GetLong";
+		case "byte":
+		case "System.Byte":
+			return "GetByte";
+		case "char":
+		case "System.Char":
+			return "GetChar";
+		case "System.Guid":
+			return "GetGuid";
+		case "decimal":
+		case "System.Decimal":
+			return "GetDecimal";						
+    }
+    
+    return String.Concat("Get[", name, "]");			
+}
+#>
