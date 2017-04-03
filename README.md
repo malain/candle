@@ -14,10 +14,10 @@ It implements some good practices of the [layered architecture](http://msdn.micr
 
 ! Screenshots
 
-![Component Model](./img/samplecomponent.png)
+![Component Model](./img/SampleComponent.png)
 
 
-[Entities model](./img/samplemodels.png)
+![Entities model](./img/samplemodels.png)
 
 
-[Dependencies graph on the repository](./img/dependenciesview.jpg)
+![Dependencies graph on the repository](./img/dependenciesview.jpg)
