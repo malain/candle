@@ -2,8 +2,8 @@
 
 *Project Description*
 
-This sample is used to promote [url:dsl tools](http://msdn.microsoft.com/en-us/library/bb126235.aspx). 
-It implements some good practices of the [url:layered architecture](http://msdn.microsoft.com/en-us/library/ms954595.aspx) and show you how create a specific model to generate application code. 
+This sample is used to promote [dsl tools](http://msdn.microsoft.com/en-us/library/bb126235.aspx). 
+It implements some good practices of the [layered architecture](http://msdn.microsoft.com/en-us/library/ms954595.aspx) and show you how create a specific model to generate application code. 
 
 ! Behaviors
 * Multi views 
